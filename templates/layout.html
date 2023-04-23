@@ -1,0 +1,96 @@
+
+<html lang="pt-br">
+
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="initial-scale=1, width=device-width">
+
+        <!-- http://getbootstrap.com/docs/5.1/ -->
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-maskmoney/3.0.2/jquery.maskMoney.min.js"></script>
+        <link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" rel="stylesheet">
+        <script crossorigin="anonymous" src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"></script>
+
+
+        <link href="https://cdn.datatables.net/v/bs5/dt-1.13.4/r-2.4.1/rr-1.3.3/sb-1.4.2/sp-2.1.2/sl-1.6.2/sr-1.2.2/datatables.min.css" rel="stylesheet"/>
+        <script src="https://cdn.datatables.net/v/bs5/dt-1.13.4/r-2.4.1/rr-1.3.3/sb-1.4.2/sp-2.1.2/sl-1.6.2/sr-1.2.2/datatables.min.js"></script>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+        
+        <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+        <link href='https://fonts.googleapis.com/css?family=Audiowide' rel='stylesheet'>
+
+        <!-- https://favicon.io/emoji-favicons/money-bag/ -->
+        <link href="/static/favicon.ico" rel="icon">
+
+        <link href="/static/styles.css" rel="stylesheet">
+        <title>{% block title %}{% endblock %}</title>
+
+    </head>
+
+    <body>
+        <div class="modal loading" style=" display:none;">
+            <div  class="imgLoading">
+                <img class="spinner-border"src="/static/img/loading.png"  />
+            </div>
+        </div>
+
+       <nav id="navBrand" class="bg-light border navbar navbar-expand-md navbar-light" >
+            <div class="container-fluid">
+
+                <a class="navbar-brand" href="/"> <span class="red">DESPESA$ PESSOAI$</span></a>
+                <button aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-bs-target="#navbar" data-bs-toggle="collapse" type="button">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbar">
+                    {% if session["user_id"] %}
+                        <ul class="navbar-nav me-auto mt-2">
+                            <li class="nav-item"><a class="nav-link" href="/dashboard"><img class="iconImg" src="/static/img/information.png"/> Dashboard</a></li>
+                            <li class="nav-item"><a class="nav-link" href="/lancamentos"><img class="iconImg" src="/static/img/information.png"/> Lançamentos</a></li>
+                            <li class="nav-item"><a class="nav-link" href="/despesasList"><img class="iconImg" src="/static/img/money.png"/> Despesas</a></li>
+                            <li class="nav-item"><a class="nav-link" href="/receitasList"><img class="iconImg" src="/static/img/wallet.png"/> Receitas</a></li>
+                            <li class="nav-item"><a class="nav-link" href="/categoriaList"><img class="iconImg" src="/static/img/categorizacao.png"/> Categoria</a></li>
+                        </ul>
+                        <ul class="navbar-nav ms-auto mt-2">
+                            <li class="nav-item"><a class="nav-link" href="/logout"><img class="iconImg" src="/static/img/logout.png"/> Sair</a></li>
+                        </ul>
+                    {% else %}
+                        <ul class="navbar-nav ms-auto mt-2">
+                            <li class="nav-item"><a class="nav-link" href="/register">Criar uma conta</a></li>
+                            <li class="nav-item"><a class="nav-link" href="/login">Fazer login</a></li>
+                        </ul>
+                    {% endif %}
+                </div>
+            </div>
+        </nav>
+
+        {% if get_flashed_messages() %}
+            <header>
+                <div class="alert alert-primary mb-0 text-center" role="alert">
+                    {{ get_flashed_messages() | join(" ") }}
+                </div>
+            </header>
+        {% endif %}
+
+        {% block header %}{% endblock %}
+        {% block alert%}{% endblock%}
+
+        <main class="container-fluid py-1 text-center">
+            {% block main %}
+
+
+            {% endblock %}
+        </main>
+        <div class="container-fluid">
+            <nav class="navbar navbar-light bg-light">
+            {% block barraFerramenta%}{%endblock%}
+            </nav>
+        </div>
+
+
+        <footer class="mb-3 small text-center text-muted">
+            © 2023 Honey TI. Todos os direitos reservados - Desenvolvido por Alex Ribeiro de Faria
+        </footer>
+
+    </body>
+</html>

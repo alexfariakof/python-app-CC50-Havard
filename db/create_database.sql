@@ -1,0 +1,3 @@
+-- sqlite3 DespesasPessoaisDB.db
+-- sqlite3
+-- .schema

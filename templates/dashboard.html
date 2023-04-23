@@ -1,0 +1,46 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Dashboard
+{% endblock %}
+{% block header %}
+<script type="text/javascript" src="/static/js/dashboard.js"></script>
+<div id="navbarDisplay" class="navbarDisplay"   ></div>
+<div id="navbarDisplay" class="navbarDisplay"   ></div>
+<div class="container-fluid  " >
+    <nav class="navbar navbar-light bg-light h-5 "; >
+        <ul >    
+            <div>
+                <div class="mb-3">  
+                    <label for="tipoCategoria" class="form-label">Tipo de Categoria  por ano</label>      
+                    <select id="tipoCategoria" name="tipoCategoria" class="custom-select" style="width:6rem">
+                        <option value="1" selected="selected">Despesas</option>
+                        <option value="2"  >Receitas</option>
+                    </select>
+                    <input id="ddAno" name ="ddAno" type="number" autocomplete="off" autofocus placeholder="Ano" min="1900" max="2099" step="1" value="2023" style="width:3.6rem" />
+                </div>
+            </div>
+        </ul>
+        <ul>
+            <table style="margin-top:1rem;margin-botton:0;">
+                <tr>
+                    <td colspan="6"></td>
+                    {% if saldo < 0 %}
+                        <th class="saldoRed">Saldo</th>
+                        <td class="saldoRed">R$ {{ saldo }}</td>
+                    {% else %}
+                        <th class="saldoGreen" >Saldo</th>
+                        <td class="saldoGreen">R$ {{ saldo }}</td>
+                    {% endif%}
+                </tr>
+            </table>
+        </ul>
+    </nav>
+</div>
+{% endblock %}
+
+{% block main %}
+<div class="section">
+    <canvas id="myChart"  style=" position: sticky;width:100%;height:22em"></canvas>
+</div>
+{%endblock%}

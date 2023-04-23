@@ -1,0 +1,80 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Receitas
+{% endblock %}
+{% block header %}
+<script type="text/javascript" src="/static/js/receitas.js"></script>
+<div id="navbarDisplay" class="navbarDisplay"   ></div>
+<div class="container-fluid " >
+    <nav class="navbar navbar-light bg-light  align-items-end"  >
+        <ul class="titulo">Receitas</ul>
+        <ul>
+            <table >
+                <tr>
+                    <td colspan="6"></td>
+                    {% if saldo < 0 %}
+                    <th class="saldoRed">Saldo</th>
+                     <td class="saldoRed">R$ {{ saldo }}</td>
+                    {% else %}
+                    <th class="saldoGreen">Saldo</th>
+                    <td class="saldoGreen">R$ {{ saldo }}</td>
+                    {% endif%}
+           </tr>
+            </table>
+        </ul>
+    </nav>
+</div>
+{% endblock %}
+{% block main %}
+
+<div class="section">
+    <div id="liveAlertPlaceholder"></div>
+    <form action="/" method="post">
+        {% for dado in dados %}
+        <input type="hidden" id="idReceita" name="idReceita" value="{{ dado.id }}">
+        <div class="mb-3">
+            <label for="Categoria" class="form-label">Categoria</label>
+            <select id="idcategoria" name="idcategoria" class="custom-select">
+                <option {% if dado.idTipoCategoria == 0 %} selected="selected" {% endif %} value="0">Nenhuma Categoria Selecionada</option>
+                {% for categoria in categorias %}
+                <option {% if dado.idCategoria == categoria.id %} selected="selected" {% endif %} value="{{ categoria.id }}">{{ categoria.descricao }}</option>
+                {% endfor %}
+            </select>
+     </div>
+        <div class="mb-3">
+            <label for="Data">Data</label>
+            <input value={{ dado.data }} autocomplete="off" autofocus id="data" name="data" placeholder="Data" type="date" min="2023-01-01"
+                max="2030-12-31" required /></td>
+        </div>
+        <div class="mb-3">
+            <label for="descricao">Descricao</label>
+            <input value= "{{ dado.descricao }}"  autocomplete="off" autofocus id="descricao" name="descricao" placeholder="Descrição" type="text"
+                required /></td>
+        </div>
+        <div class="mb-3">
+            <label for="valor">Valor</label>
+            <input value="{{ dado.valor }}"  id="valor" name="valor" autocomplete="off" autofocus  placeholder="Valor" type="text" class="currency-mask currency textValorDecimal" min="0" max="100000000" />
+        </div>
+    {% endfor%}
+    </form>
+</div>
+{% endblock %}
+{% block barraFerramenta%}
+    <ul>
+        <button id="btnSalvarReceita" onclick="handleSaveReceita()" class="btn btn-primary btnBarraFerramenta" data-bs-toggle="tooltip" data-bs-placement="top" title="Salvar Receita">
+            <img class="iconImg" src="/static/img/diskette.png" /> Salvar
+        </button>
+        <button id="btnNewaReceita" onclick="clearFormReceita()" class="btn btn-primary btnBarraFerramenta" data-bs-toggle="tooltip" data-bs-placement="top" title="Crirar uma nova Receita">
+            <img class="iconImg" src="/static/img/plus.png" /> Nova Receita
+        </button>
+        <button id="btnListaReceita" onclick="handleListReceita()" class="btn btn-primary btnBarraFerramenta" data-bs-toggle="tooltip" data-bs-placement="top" title="Listar Receitas">
+            <img class="iconImg" src="/static/img/list.png" /> Listar
+        </button>
+    </ul>
+    <ul>
+        <button id="btnVoltarReceita" onclick="location.href = document.referrer;" class="btn btn-primary">
+            <img class="iconImg" src="/static/img/voltar.png" /> Voltar
+        </button>
+    </ul>
+{% endblock%}

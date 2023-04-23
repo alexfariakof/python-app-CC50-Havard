@@ -1,0 +1,80 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Despesas
+{% endblock %}
+{% block header %}
+<script type="text/javascript" src="/static/js/despesas.js"></script>
+<div id="navbarDisplay" class="navbarDisplay"   ></div>
+<div id="navbarDisplay" class="navbarDisplay"   ></div>
+<div class="container-fluid  " >
+    <nav class="navbar navbar-light bg-light h-5 "; >
+        <ul class="titulo">Despesas</ul>
+        <ul>
+            <table style="margin-top:1rem;margin-botton:0;">
+                <tr>
+                    <td colspan="6"></td>
+                    {% if saldo < 0 %}
+                        <th class="saldoRed">Saldo</th>
+                        <td class="saldoRed">R$ {{ saldo }}</td>
+                    {% else %}
+                        <th class="saldoGreen" >Saldo</th>
+                        <td class="saldoGreen">R$ {{ saldo }}</td>
+                    {% endif%}
+                </tr>
+            </table>
+        </ul>
+    </nav>
+</div>
+{% endblock %}
+
+{% block main %}
+<div id="liveAlertPlaceholder"></div>
+<div class="section">
+    <form action="/despesas" method="post">
+        {% for dado in dados %}
+            <input type="hidden" id="idDespesa" name="idDespesa" value="{{ dado.id }}">
+            <div class="mb-3">
+                <label for="idCategoria" class="form-label">Categoria</label>
+                <select id="idCategoria" name="idCategoria" class="custom-select">
+                    <option {% if dado.idTipoCategoria == 0 %} selected="selected" {% endif %} value="0">Nenhuma Categoria Selecionada</option>
+                    {% for categoria in categorias %}
+                        <option {% if dado.idCategoria == categoria.id %} selected="selected" {% endif %} value="{{ categoria.id }}">{{ categoria.descricao }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="mb-2">
+                <label for="Data">Data</label>
+                <input value="{{ dado.data }}" id="data" name="data" autocomplete="off" autofocus  placeholder="Data" type="date" min="2008-01-01" max="2050-12-31" required />
+            </div>
+            <div class="mb-2">
+                <label for="descricao">Descricao</label>
+                <input value="{{ dado.descricao }}" id="descricao" name="descricao" autocomplete="off" autofocus  placeholder="Descrição" type="text" />
+            </div>
+            <div class="mb-2">
+                <label for="dataVencimento">Data de Vencimento</label>
+                <input value="{{ dado.dataVencimento }}" id="dataVencimento" name="dataVencimento" autocomplete="off" autofocus  placeholder="Data de Vencimento" type="date" min="2008-01-01" max="2050-12-31" />
+            </div>
+            <div class="mb-2">
+                <label for="valor">Valor</label>
+                <input value="{{ dado.valor }}"  id="valor" name="valor" autocomplete="off" autofocus  placeholder="Valor" type="text" class="currency-mask currency textValorDecimal" min="0" max="100000000" />
+            </div>
+        {% endfor %}
+    </form></div>
+{% endblock %}
+{% block barraFerramenta%}
+    <ul>
+        <button id="btnSaveDespesa" onclick="handleSaveDespesa()" data-bs-toggle="tooltip" data-bs-placement="top" title="Salvar despesa" class="btn btn-primary btnBarraFerramenta">
+            <img class="iconImg" src="/static/img/diskette.png" /> Salvar
+        </button>
+        <button id="btnNewDespesa" onclick="clearFormDespesa()" data-bs-toggle="tooltip" data-bs-placement="top" title="Crirar uma nova despesa"class="btn btn-primary btnBarraFerramenta">
+            <img class="iconImg" src="/static/img/plus.png" /> Nova Despesa
+        </button>
+        <button id="btnListDespesa" onclick="handleListDespesa()" class="btn btn-primary btnBarraFerramenta" data-bs-toggle="tooltip" data-bs-placement="top" title="Listar despesas">
+            <img class="iconImg" src="/static/img/list.png" /> Listar
+        </button>
+    </ul>
+    <ul >
+        <button id="btnVoltarDespesas" onclick="location.href = document.referrer;" class="btn btn-primary"><img class="iconImg" src="/static/img/voltar.png" style="margin_right:2rem" /> Voltar </button>
+    </ul>
+{%endblock%}

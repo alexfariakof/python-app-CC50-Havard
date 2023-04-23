@@ -1,0 +1,8 @@
+docker-compose --version
+docker-compose build
+docker-compose up
+
+
+Crie uam conta Heroku
+install Heroku
+https://devcenter.heroku.com/articles/getting-started-with-python
