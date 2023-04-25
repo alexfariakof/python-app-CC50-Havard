@@ -1,10 +1,5 @@
 $(document).ready(function () {
-
-
-    setTimeout(function() {
-        $("#navBrand").addClass('collapse')
-    }, 5000);
-
+/*
     $('#navbarDisplay').on('mouseover' , function(){
         $("#navBrand").removeClass('collapse');
         setTimeout(function() {
@@ -12,11 +7,12 @@ $(document).ready(function () {
         }, 20000);
 
     });
-
+*/
 
     $('#tableLancamentos').DataTable({
         "lengthMenu": [[5, 10, 25, 50, -1], [5, 10, 25, 50, 'Todos'], ],
         "pageLength": -1,
+        "scrollCollapse": true,
         "paging": true,
         "language": {
             "search": "Pesquisar :",

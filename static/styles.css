@@ -1,32 +1,37 @@
 body{
     font-family: 'Roboto';
     font-size: 1rem;
+    margin: 0;
+    height: 100%;
 }
 
-/* Size for brand */
+.headerNav{
+    border-bottom: 2px #0d6efd;
+}
 
 .navbarDisplay {
-    position:  static;
-    top: 0px;
     background-color: #0d6efd;
     width: 100%;
     height: 0.25rem;
 }
 
+.navbar-nav{
+    color:#0d6efd;
+}
 
 nav .navbar-brand
 {
-    font-size: xx-large;
+    font-size: 2em;   
 }
 
 /* Colors for brand */
 nav .navbar-brand .blue
 {
-    color: #537fbe;
+    color: #0d6efd;
 }
 nav .navbar-brand .red
 {
-    color: #0d6efd;
+    color: red;
 }
 nav .navbar-brand .yellow
 {
@@ -36,6 +41,26 @@ nav .navbar-brand .green
 {
     color: #2e944b;
 }
+
+.sidebar {
+    width: 12.5em;
+
+}
+
+.main {
+    width: auto;
+    height: auto;
+}
+
+.footer {
+    width: 100%;
+    background-color: #f8f9fa;
+    color: #0d6efd;
+    text-align: center;
+    position: relative;
+    bottom: 0;
+}
+
 
 .container {
     margin-left: auto;
@@ -316,7 +341,7 @@ input[type="date"]::-webkit-inner-spin-button {
 
  .titulo{
     font-size: 1.5rem;
-    color:#0d6efd;;
+    color:#0d6efd;
  }
 
  .saldoRed{

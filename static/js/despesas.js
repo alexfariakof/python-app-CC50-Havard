@@ -6,22 +6,11 @@ $(document).ready(function () {
         thousands: "."
     });
 
-    setTimeout(function () {
-        $("#navBrand").addClass('collapse')
-    }, 5000);
-
-    $('#navbarDisplay').on('mouseover', function () {
-        $("#navBrand").removeClass('collapse');
-        setTimeout(function () {
-            $("#navBrand").addClass('collapse')
-        }, 20000);
-
-    });
-
     $('#tableDespesa').DataTable({
         "lengthMenu": [[5, 10, 25, 50, -1], [5, 10, 25, 50, 'Todos'],],
         "pageLength": -1,
         "paging": true,
+        "scrollCollapse": true,
         "language": {
             "search": "Pesquisar :",
             "lengthMenu": "Mostrando _MENU_ registros por página",
