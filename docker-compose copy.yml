@@ -1,0 +1,10 @@
+version: '3.4'
+
+services:
+  despesaspython:
+    image: despesas-python
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    ports:
+      - 5005:5005   

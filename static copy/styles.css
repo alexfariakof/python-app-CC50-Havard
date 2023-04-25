@@ -4,24 +4,9 @@ body{
     margin: 0;
     height: 100%;
 }
-
-.headerNav{
-    border-bottom: 2px #0d6efd;
-}
-
-.navbarDisplay {
-    background-color: #0d6efd;
-    width: 100%;
-    height: 0.25rem;
-}
-
-.navbar-nav{
-    color:#0d6efd;
-}
-
 nav .navbar-brand
 {
-    font-size: 2em;   
+   font-size: 1.25em;
 }
 
 /* Colors for brand */
@@ -341,7 +326,7 @@ input[type="date"]::-webkit-inner-spin-button {
 
  .titulo{
     font-size: 1.5rem;
-    color:#0d6efd;
+    color:#0d6efd;;
  }
 
  .saldoRed{
