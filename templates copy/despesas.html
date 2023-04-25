@@ -1,0 +1,81 @@
+{% extends "layout.html" %}
+
+{% block title %}Despesas{% endblock %}
+{%block script  %}
+    <script type="text/javascript" src="/static/js/despesas.js"></script>
+{%endblock%}
+
+{% block saldo %}
+
+<div class="d-flex" style="width:100%">
+    <div class="titulo p-2 flex-grow-1 text-center">Despesas</div>
+    <div class="p-2 ">
+        <table >
+            <tr>
+                <td colspan="6"></td>
+                {% if saldo < 0 %}
+                <th id="thSaldo" class="saldoRed">Saldo</th>
+                <td id="tdSaldo" class="saldoRed">R$ {{ saldo }}</td>
+                {% else %}
+                <th id="thSaldo" class="saldoGreen">Saldo</th>
+                <td id="tdSaldo" class="saldoGreen">R$ {{ saldo }}</td>
+                {% endif%}
+            </tr>
+        </table>
+    </div>
+</div>
+{% endblock %}
+
+{% block main %}
+{% block barraFerramenta%}
+<div class="d-flex" style="width:100%">
+    <div class="titulo p-2 text-start flex-grow-1 ">
+        <button id="btnSaveDespesa" onclick="handleSaveDespesa()" data-bs-toggle="tooltip" data-bs-placement="top" title="Salvar despesa" class="btn btn-primary btnBarraFerramenta">
+            <img class="iconImg" src="/static/img/diskette.png" /> Salvar
+        </button>
+        <button id="btnNewDespesa" onclick="clearFormDespesa()" data-bs-toggle="tooltip" data-bs-placement="top" title="Crirar uma nova despesa"class="btn btn-primary btnBarraFerramenta">
+            <img class="iconImg" src="/static/img/plus.png" /> Nova Despesa
+        </button>
+        <button id="btnListDespesa" onclick="handleListDespesa()" class="btn btn-primary btnBarraFerramenta" data-bs-toggle="tooltip" data-bs-placement="top" title="Listar despesas">
+            <img class="iconImg" src="/static/img/list.png" /> Listar
+        </button>
+    </div>
+    <div class="p-2 align-align-items-end ">
+        <button id="btnVoltar" onclick="location.href = document.referrer;" class="btn btn-primary"><img class="iconImg" src="/static/img/voltar.png" style="margin_right:2rem" /> Voltar </button>
+    </div>
+</div>
+{%endblock%}
+<div id="liveAlertPlaceholder"></div>
+<div class="section">
+    <form action="/despesas" method="post">
+        {% for dado in dados %}
+            <input type="hidden" id="idDespesa" name="idDespesa" value="{{ dado.id }}">
+            <div class="mb-3">
+                <label for="idCategoria" class="form-label">Categoria</label>
+                <select id="idCategoria" name="idCategoria" class="custom-select">
+                    <option {% if dado.idTipoCategoria == 0 %} selected="selected" {% endif %} value="0">Nenhuma Categoria Selecionada</option>
+                    {% for categoria in categorias %}
+                        <option {% if dado.idCategoria == categoria.id %} selected="selected" {% endif %} value="{{ categoria.id }}">{{ categoria.descricao }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="mb-2">
+                <label for="Data">Data</label>
+                <input value="{{ dado.data }}" id="data" name="data" autocomplete="off" autofocus  placeholder="Data" type="date" min="2008-01-01" max="2050-12-31" required />
+            </div>
+            <div class="mb-2">
+                <label for="descricao">Descricao</label>
+                <input value="{{ dado.descricao }}" id="descricao" name="descricao" autocomplete="off" autofocus  placeholder="Descrição" type="text" />
+            </div>
+            <div class="mb-2">
+                <label for="dataVencimento">Data de Vencimento</label>
+                <input value="{{ dado.dataVencimento }}" id="dataVencimento" name="dataVencimento" autocomplete="off" autofocus  placeholder="Data de Vencimento" type="date" min="2008-01-01" max="2050-12-31" />
+            </div>
+            <div class="mb-2">
+                <label for="valor">Valor</label>
+                <input value="{{ dado.valor }}"  id="valor" name="valor" autocomplete="off" autofocus  placeholder="Valor" type="text" class="currency-mask currency textValorDecimal" min="0" max="100000000" />
+            </div>
+        {% endfor %}
+    </form>
+</div>
+{% endblock %}

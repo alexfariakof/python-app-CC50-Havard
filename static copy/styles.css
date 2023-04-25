@@ -1,0 +1,341 @@
+body{
+    font-family: 'Roboto';
+    font-size: 1rem;
+    margin: 0;
+    height: 100%;
+}
+nav .navbar-brand
+{
+   font-size: 1.25em;
+}
+
+/* Colors for brand */
+nav .navbar-brand .blue
+{
+    color: #0d6efd;
+}
+nav .navbar-brand .red
+{
+    color: red;
+}
+nav .navbar-brand .yellow
+{
+    color: #f5b82e;
+}
+nav .navbar-brand .green
+{
+    color: #2e944b;
+}
+
+.sidebar {
+    width: 12.5em;
+
+}
+
+.main {
+    width: auto;
+    height: auto;
+}
+
+.footer {
+    width: 100%;
+    background-color: #f8f9fa;
+    color: #0d6efd;
+    text-align: center;
+    position: relative;
+    bottom: 0;
+}
+
+
+.container {
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 15px;
+    padding-right: 15px;
+    text-align: center;
+    width: 100%;
+}
+
+.header {
+    background-color: #4481fc;
+    color: #fff;
+    margin-bottom: 0.2rem;
+    padding: 0rem 0.5rem;
+    text-align: center;
+}
+
+.section {
+    padding-bottom: 0.2rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    padding-top: 0.2rem;
+    text-align: left;
+    width: 100%;
+    align-items: center;
+}
+
+.formSection{
+    align-items: flex-start;
+}
+
+.section:hover {
+    background-color: #f5f5f5;
+    transition: color 2s ease-in-out, background-color 0.15s ease-in-out;
+}
+table {
+    background-color: transparent;
+    margin-bottom: 0.25rem;
+    width: 100%;
+}
+
+table th,
+table td {
+    padding: 0.75rem;
+    vertical-align: middle;
+}
+
+tbody tr:nth-of-type(odd) {
+    background-color: rgb(179, 208, 255, 0.3)
+}
+
+.dataTables_wrapper th {
+    padding: 0.75rem;
+    vertical-align: middle;
+    background-color: #a3c9ec;
+}
+
+.dataTables_wrapper tr:nth-of-type(odd) {
+    background-color: #d9edff;
+
+}
+
+
+
+button, input[type="submit"] {
+    background-color: #d9edff;
+    border: 1px solid transparent;
+    border-radius: 0.25rem;
+    font-size: 0.95rem;
+    font-weight: 400;
+    line-height: 1.5;
+    padding: 0.375rem 0.75rem;
+    text-align: center;
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    vertical-align: middle;
+}
+
+.btn_buy{
+    background-color: #7bde32;
+    border: 1px solid transparent;
+    border-radius: 0.25rem;
+    font-size: 0.95rem;
+    font-weight: 400;
+    line-height: 1.5;
+    padding: 0.375rem 0.75rem;
+    text-align: center;
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    vertical-align: middle;
+    color:azure;
+    border-radius: 2rem;
+}
+
+
+.btn_sell{
+    background-color: #ee3b3b;
+    border: 1px solid transparent;
+    border-radius: 0.25rem;
+    font-size: 0.95rem;
+    font-weight: 400;
+    line-height: 1.5;
+    padding: 0.375rem 0.75rem;
+    text-align: center;
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    vertical-align: middle;
+    color:azure;
+    border-radius: 2rem;
+}
+
+.btnBarraFerramenta {
+    margin: 0.4rem;
+}
+
+.iconImg {
+    max-width:1.5rem;
+    max-height:1.5rem;
+    width: auto;
+    height: auto;
+}
+
+label{
+    text-align: left;
+    align-items: flex-start;
+    width:auto;
+    padding:0px;
+    vertical-align: middle;
+    font-weight: bold;
+    text-align: justify;
+    text-justify: inter-word;
+}
+
+
+input[type="text"], input[type="number"], input[type="date"], .custom-select, Select {
+    line-height: 1.8;
+    width: 100%;
+    border-radius: 0.25rem;
+    font-size: medium;
+}
+
+input[type="text"]:hover, input[type="number"]:hover,  Select:hover {
+    background-color: #f5f5f5;
+    transition: color 2s ease-in-out, background-color 0.15s ease-in-out;
+}
+
+Select {
+    width: 100%;
+    height:2rem;
+    border-radius: 0.25rem;
+    border: 2px solid;
+    line-height: 1.8;
+    font-size: medium;
+}
+
+.textValorDecimal:hover
+{
+    line-height: 1.8;
+    width: 100%;
+    border-radius: 0.25rem;
+    border: 2px solid;
+    font-size: medium;
+}
+
+
+.textValorDecimal:hover
+{
+    background-color: #f5f5f5;
+    transition: color 2s ease-in-out, background-color 0.15s ease-in-out;
+}
+
+
+.loading {
+    background-color:#0d6efd;
+    color:white;
+    background-size: cover;
+    opacity: 0.3;
+    z-index: 998;
+
+}
+
+.imgLoading {
+    position:absolute;
+    left:50%;
+    top:50%;
+    transform:translate(-50%,-50%);
+    z-index: 999;
+}
+
+
+input[type="month"] {
+    position: relative;
+    width:auto;
+    height:2.5rem;
+    vertical-align:bottom;
+    margin-left: 0.5rem;
+    Text-align:center;
+    margin-top:0.4rem;
+}
+
+input[type="month"]:after {
+    content: "\25BC";
+    color: #555;
+    padding: 0 5px;
+}
+
+
+input[type="month"]:hover:after {
+    color: #bf1400;
+}
+input[type="month"]::-webkit-calendar-picker-indicator {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: auto;
+    height: auto;
+    color: transparent;
+    background: transparent;
+}
+
+
+input[type="month"]::-webkit-inner-spin-button {
+    z-index: 1;
+}
+
+
+ input[type="month"]::-webkit-clear-button {
+     z-index: 1;
+ }
+
+ input[type="date"] {
+    line-height: 1.8;
+    position: relative;
+    width: 100%;
+    height:2.5rem;
+    vertical-align:bottom;
+    Text-align:left;
+    font-size: medium;
+    margin-top:0.4rem;
+    border-radius: 0.25rem;
+}
+
+input[type="date"]:after {
+    content: "\25BC";
+    color: #555;
+    padding: 0 5px;
+}
+
+input[type="date"]:hover{
+    background-color: #f5f5f5;
+    transition: color 2s ease-in-out, background-color 0.15s ease-in-out;
+}
+
+
+input[type="date"]:hover:after {
+    color: #bf1400;
+}
+input[type="date"]::-webkit-calendar-picker-indicator {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: auto;
+    height: auto;
+    color: transparent;
+    background: transparent;
+}
+
+input[type="date"]::-webkit-inner-spin-button {
+    z-index: 1;
+}
+
+ input[type="date"]::-webkit-clear-button {
+     z-index: 1;
+
+ }
+
+ .titulo{
+    font-size: 1.5rem;
+    color:#0d6efd;;
+ }
+
+ .saldoRed{
+    font-size: 1.5rem;
+    color:red;
+ }
+
+ .saldoGreen{
+    font-size: 1.5rem;
+    color:green;
+ }
+

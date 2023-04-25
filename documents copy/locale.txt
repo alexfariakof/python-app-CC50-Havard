@@ -1,0 +1,7 @@
+export LC_ALL="pt_BR.UTF-8"
+export LC_CTYPE="pt_BR.UTF-8"
+dpkg-reconfigure locales
+
+apt-get install locale-gen
+
+apt-get install language-pack-pt_BR.UTF-8

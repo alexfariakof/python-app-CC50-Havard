@@ -1,0 +1,41 @@
+{% extends "layout.html" %}
+
+{% block title %}Dashboard{% endblock %}
+
+{%block script  %}
+    <script type="text/javascript" src="/static/js/dashboard.js"></script>
+{%endblock%}
+
+{% block saldo %}
+
+<div class="d-flex" style="width:100%">
+    <div class="titulo p-2 flex-grow-1 text-center">Despesas</div>
+    <div class="p-2 ">
+        <table >
+            <tr>
+                <td colspan="6"></td>
+                {% if saldo < 0 %}
+                <th id="thSaldo" class="saldoRed">Saldo</th>
+                <td id="tdSaldo" class="saldoRed">R$ {{ saldo }}</td>
+                {% else %}
+                <th id="thSaldo" class="saldoGreen">Saldo</th>
+                <td id="tdSaldo" class="saldoGreen">R$ {{ saldo }}</td>
+                {% endif%}
+            </tr>
+        </table>
+    </div>
+</div>
+{% endblock %}
+
+{% block main %}
+    <div class="mb-2">  
+        <label for="tipoCategoria" class="form-label">Tipo de Categoria  por ano</label>      
+        <select id="tipoCategoria" name="tipoCategoria" class="custom-select" style="width:6rem">
+            <option value="1" selected="selected">Despesas</option>
+            <option value="2"  >Receitas</option>
+        </select>
+        <input id="ddAno" name ="ddAno" type="number" autocomplete="off" autofocus placeholder="Ano" min="1900" max="2099" step="1" value="2023" style="width:3.6rem" />
+    </div>
+   <canvas id="myChart" class="h-75"></canvas>
+
+{%endblock%}

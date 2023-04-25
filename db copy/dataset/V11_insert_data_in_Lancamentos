@@ -1,0 +1,39 @@
+INSERT INTO Lancamentos
+            (idUsuario, data                  , idCategoria ,valor    , tipo   , idDespesa , idReceita , descricao            , categoria  )
+    VALUES ( 1        , '2022-10-12' , 1           , -2.98 , 'Despesas' , 1         , 0         , 'Pagamento qualquer' , 'Alimentação');
+INSERT INTO Lancamentos(idUsuario, data, idCategoria,valor,Tipo,idDespesa, idReceita, descricao, categoria)
+    VALUES ( 1         , '2022-10-12' , 2           , -1.88  , 'Despesas' , 2         , 0         , 'Pagamento qualquer' , 'Casa');
+
+INSERT INTO Lancamentos(idUsuario, data, idCategoria,valor,Tipo,idDespesa, idReceita, descricao, categoria)
+    VALUES ( 1         , '2022-10-12' , 3           , -7.98 , 'Despesas' , 3         , 0         , 'Pagamento qualquer' , 'Serviços');
+INSERT INTO Lancamentos(idUsuario, data, idCategoria,valor,Tipo,idDespesa, idReceita, descricao, categoria)
+    VALUES ( 1         , '2022-10-12' , 5           , -44.7  , 'Despesas' , 4         , 0         , 'Pagamento qualquer' , 'Imposto');
+INSERT INTO Lancamentos(idUsuario, data, idCategoria,valor,Tipo,idDespesa, idReceita, descricao, categoria)
+    VALUES ( 1         , '2022-10-12' , 8           , 20.98 , 'Receitas' , 0         , 1         , 'Pagamento qualquer' , 'Salário');
+INSERT INTO Lancamentos(idUsuario, data, idCategoria,valor,Tipo,idDespesa, idReceita, descricao, categoria)
+    VALUES ( 1         , '2022-10-12' , 9           , 44.7   , 'Receitas' , 0         , 4         , 'Pagamento qualquer' , 'Prêmio');
+INSERT INTO Lancamentos(idUsuario, data, idCategoria,valor,Tipo,idDespesa, idReceita, descricao, categoria)
+    VALUES ( 1         , '2022-10-12' , 10          , 7.98  , 'Receitas' , 0         , 3         , 'Pagamento qualquer' , 'Investimento');
+INSERT INTO Lancamentos(idUsuario, data, idCategoria,valor,Tipo,idDespesa, idReceita, descricao, categoria)
+    VALUES ( 1         , '2022-10-12' , 12          , 1.88   , 'Receitas' , 0         , 2         , 'Pagamento qualquer' , 'Outro');
+
+
+INSERT INTO Lancamentos
+            (idUsuario, data                  , idCategoria ,valor    , tipo   , idDespesa , idReceita , descricao            , categoria  )
+    VALUES ( 2        , '2022-10-12' , 1           , -80.97 , 'Despesas' , 1         , 0         , 'Pagamento qualquer' , 'Alimentação');
+INSERT INTO Lancamentos(idUsuario, data, idCategoria,valor,Tipo,idDespesa, idReceita, descricao, categoria)
+    VALUES ( 2         , '2022-10-12' , 2           , -1.88  , 'Despesas' , 2         , 0         , 'Pagamento qualquer' , 'Casa');
+
+INSERT INTO Lancamentos(idUsuario, data, idCategoria,valor,Tipo,idDespesa, idReceita, descricao, categoria)
+    VALUES ( 2         , '2022-10-12' , 3           , -10.87 , 'Despesas' , 3         , 0         , 'Pagamento qualquer' , 'Serviços');
+INSERT INTO Lancamentos(idUsuario, data, idCategoria,valor,Tipo,idDespesa, idReceita, descricao, categoria)
+    VALUES ( 2        , '2022-10-12' , 5           , -44.7  , 'Despesas' , 4         , 0         , 'Pagamento qualquer' , 'Imposto');
+INSERT INTO Lancamentos(idUsuario, data, idCategoria,valor,Tipo,idDespesa, idReceita, descricao, categoria)
+    VALUES ( 2         , '2022-10-12' , 8           , 20.97 , 'Receitas' , 0         , 1         , 'Pagamento qualquer' , 'Salário');
+INSERT INTO Lancamentos(idUsuario, data, idCategoria,valor,Tipo,idDespesa, idReceita, descricao, categoria)
+    VALUES ( 2         , '2022-10-12' , 9           , 44.7   , 'Receitas' , 0         , 4         , 'Pagamento qualquer' , 'Prêmio');
+INSERT INTO Lancamentos(idUsuario, data, idCategoria,valor,Tipo,idDespesa, idReceita, descricao, categoria)
+    VALUES ( 2         , '2022-10-12' , 10          , 7.98  , 'Receitas' , 0         , 3         , 'Pagamento qualquer' , 'Investimento');
+INSERT INTO Lancamentos(idUsuario, data, idCategoria,valor,Tipo,idDespesa, idReceita, descricao, categoria)
+    VALUES ( 2         , '2022-10-12' , 12          , 1.88   , 'Receitas' , 0         , 2         , 'Pagamento qualquer' , 'Outro');
+        
