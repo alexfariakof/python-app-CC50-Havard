@@ -46,7 +46,7 @@
             <nav id="navBrand" class="bg-light navbar navbar-expand-sm navbar-dark navbar-expand-md navbar-light " >
                 <div class="headerNav container-fluid">
                     <div>
-                        <button aria-controls="sidebar" aria-expanded="true" aria-label="Toggle navigation" class="navbar-toggler" data-bs-target="#sidebar" data-bs-toggle="collapse" type="button">
+                        <button aria-controls="sidebar" aria-expanded="false" aria-label="Toggle navigation" class="d-md-none" data-bs-target="#sidebar" data-bs-toggle="collapse" type="button">
                             <span class="navbar-toggler-icon"></span>
                         </button>
                         <a class="navbar-brand align-text-lg-start" href="/"> <span class="blue">DESPESA$ PESSOAI$</span></a>
@@ -55,7 +55,7 @@
                     {% if session["user_id"] %}
                     <div class="dropdown">
                         <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
-                            <img src="https://github.com/mdo.png" alt="" width="64" height="64" class="rounded-circle me-2">
+                            <img src="static/img/perfi.png" alt="" width="64" height="64" class="rounded-circle me-2">
                             <strong>mdo</strong>
                         </a>
                         <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1" style="">
@@ -79,7 +79,7 @@
         <div class="w-100 h-80">
             <div class="d-flex h-100  ">
                     {% if session["user_id"] %}
-                    <div id="sidebar" class="sidebar collapse-horizontal align-items-start  h-100 p-2 text-white bg-light"  >
+                    <div id="sidebar" class="sidebar d-md-block collapse-horizontal align-items-start  h-100 p-2 text-white bg-light"  >
                         <ul class="nav nav-pills flex-column mb-auto">
                             <li class="nav-item">
                                 <a class="nav-link" href="/dashboard"><img class="iconImg" src="/static/img/home.png"/>  Dashboard</a>
@@ -111,6 +111,7 @@
              <footer  class=" mb-3 text-center h-5">© 2023 Honey TI. Todos os direitos reservados - Desenvolvido por Alex Ribeiro de Faria</footer>                  
           </div>    
     </div>
-    
+</body>
+</html>
 
 
