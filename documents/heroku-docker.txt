@@ -1,0 +1,4 @@
+https://www.youtube.com/watch?v=4axmcEZTE7M
+
+1 - heroku login
+2- heroku stack:set container --app despesas-frontend-react-docker
