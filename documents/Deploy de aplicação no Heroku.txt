@@ -9,12 +9,15 @@
 3- Criar projto no heroku
   $ heroku create app-despesas-pessoais-python
 
-4- Publicando aplicação no heroku
+4 - Executar build pack para python 
+  $ heroku buildpacks:set heroku/python
+
+5- Publicando aplicação no heroku
     $ git add .
     git commit -m "scafold commit"
     git push heroku main
 
-5 - Tavelves haja necesidade de instalar os pacotes pelo run do heroku 
+6 - Tavelves haja necesidade de instalar os pacotes pelo run do heroku 
     python -m pip install flask
     python -m pip install gunicorn
     python -m pip install CS50
@@ -22,3 +25,16 @@
     python -m pip install requests
 
 6 - Resolver problema do locale
+
+
+talvez se resolva com o 
+
+    python -m pip install poetry
+    poetry add locale
+
+
+    sudo apt-get install language-pack-pt-base
+
+    export LANG=pt_BR.UTF-8
+
+

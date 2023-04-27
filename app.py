@@ -1,5 +1,5 @@
 import os
-from cs50 import SQL
+from CS50 import *
 from flask import Flask, flash, jsonify, json, redirect, render_template, request, session
 from flask_session import Session
 from tempfile import mkdtemp
