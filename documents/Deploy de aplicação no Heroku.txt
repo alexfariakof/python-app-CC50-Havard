@@ -1,24 +1,24 @@
-1 - Abra o powershell em modo administrador e Use o coamando "heroku login" para fazer login no Heroku CLI:
-    $ heroku login
 
-2 - Framework sinicrono Flask use gunicorn
-    $ pip install gunicorn
+0- Crie um arquivo no diretorio raiz Procfile e escreva no arquivo web: gunicorn "app:create_app()"
+
+1 - crie uma função def create_app(): ppara inicializar a aplicação em app.py
+
+2 - Abra o powershell em modo administrador e Use o coamando "heroku login" para fazer login no Heroku CLI:
+    $ heroku login
 
 3- Criar projto no heroku
   $ heroku create app-despesas-pessoais-python
 
-4- confgigurações Iniciais para logar no ambiente virtual env
-    $ pip install poetry
-    $ poetry init -n 
-    $ poetry shell\
-
-5- Publicando aplicação no heroku
+4- Publicando aplicação no heroku
     $ git add .
     git commit -m "scafold commit"
     git push heroku main
 
-6- Buildpacks dizm em quetipo de eossistema estamos
-    $ heroku Buildpacks:locale-gen pt_BR.UTF-8
+5 - Tavelves haja necesidade de instalar os pacotes pelo run do heroku 
+    python -m pip install flask
+    python -m pip install gunicorn
+    python -m pip install CS50
+    python -m pip install flask_session
+    python -m pip install requests
 
-7- install local pt-br
-locale-gen pt_BR.UTF-8
+6 - Resolver problema do locale
