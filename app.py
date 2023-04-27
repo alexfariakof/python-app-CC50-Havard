@@ -8,6 +8,9 @@ import locale
 from helpers import apology, login_required, lookup, usd
 
 
+ # Configure CS50 Library to use SQLite database
+db = SQL("sqlite:///DespesasPessoaisDB.db")
+
 def create_app():
     # Configure application
     app = Flask(__name__)
@@ -24,8 +27,6 @@ def create_app():
 
     Session(app)
 
-    # Configure CS50 Library to use SQLite database
-    db = SQL("sqlite:///DespesasPessoaisDB.db")
 
     @app.after_request
     def after_request(response):
@@ -523,43 +524,42 @@ def create_app():
         return render_template('lancamentos.html', dados=dados, saldo=getSaldo(idUsuario))
 
 
-    def getSaldo(idUsuario):
+def getSaldo(idUsuario):
 
-        sqlSaldoDespesa = "select (CASE (select count(1) from despesa where idUsuario = ?) WHEN 0 THEN 0 ELSE sum(valor) END) as saldo from despesa  where idUsuario = ?;"
-        sqlSaldoReceita = "select (CASE (select count(1) from Receita where idUsuario = ?) WHEN 0 THEN 0 ELSE sum(valor) END) as saldo from Receita  where idUsuario = ?;"
+    sqlSaldoDespesa = "select (CASE (select count(1) from despesa where idUsuario = ?) WHEN 0 THEN 0 ELSE sum(valor) END) as saldo from despesa  where idUsuario = ?;"
+    sqlSaldoReceita = "select (CASE (select count(1) from Receita where idUsuario = ?) WHEN 0 THEN 0 ELSE sum(valor) END) as saldo from Receita  where idUsuario = ?;"
 
 
-        saldoDespesa = db.execute(sqlSaldoDespesa, idUsuario, idUsuario)
-        saldoReceita = db.execute(sqlSaldoReceita, idUsuario, idUsuario)
+    saldoDespesa = db.execute(sqlSaldoDespesa, idUsuario, idUsuario)
+    saldoReceita = db.execute(sqlSaldoReceita, idUsuario, idUsuario)
+    saldoDespesa = saldoDespesa[0]['saldo']
+    saldoReceita = saldoReceita[0]['saldo']
+    saldo = saldoReceita - saldoDespesa
+    saldo = round(saldo, 2)
+    return saldo
 
-        saldoDespesa = saldoDespesa[0]['saldo']
-        saldoReceita = saldoReceita[0]['saldo']
-        saldo = saldoReceita - saldoDespesa
-        saldo = round(saldo, 2)
-        return saldo
+def usdToBrl(valor):
+    locale.setlocale(locale.LC_ALL, 'pt_BR.UTF-8') # Para sistemas windows
+    usdValor = float(valor.replace(',', ''))
+    brValorFormat =  locale.currency(usdValor, grouping=True)
+    return brValorFormat
 
-    def usdToBrl(valor):
-        locale.setlocale(locale.LC_ALL, 'pt_BR.UTF-8') # Para sistemas windows
-        usdValor = float(valor.replace(',', ''))
-        brValorFormat =  locale.currency(usdValor, grouping=True)
-        return brValorFormat
+def usdToBrlWithSymbol(valor):
+    locale.setlocale(locale.LC_ALL, 'pt_BR.UTF-8') # Para sistemas windows
+    usdValor = float(valor.replace(',', ''))
+    brValorFormat = locale.currency(usdValor, grouping=True, symbol='R$')
+    return brValorFormat
 
-    def usdToBrlWithSymbol(valor):
-        locale.setlocale(locale.LC_ALL, 'pt_BR.UTF-8') # Para sistemas windows
-        usdValor = float(valor.replace(',', ''))
-        brValorFormat = locale.currency(usdValor, grouping=True, symbol='R$')
-        return brValorFormat
-
-    def fillCategoriasPadrao(idUsuario):
-        db.execute("INSERT INTO Categoria (idUsuario,idTipoCategoria ,descricao) VALUES  (?, 1, 'Alimentação' );", idUsuario);
-        db.execute("INSERT INTO Categoria (idUsuario,idTipoCategoria ,descricao) VALUES  (?, 1, 'Casa' );", idUsuario);
-        db.execute("INSERT INTO Categoria (idUsuario,idTipoCategoria ,descricao) VALUES  (?, 1, 'Serviços' );", idUsuario);
-        db.execute("INSERT INTO Categoria (idUsuario,idTipoCategoria ,descricao) VALUES  (?, 1, 'Saúde' );", idUsuario);
-        db.execute("INSERT INTO Categoria (idUsuario,idTipoCategoria ,descricao) VALUES  (?, 1, 'Imposto' );", idUsuario);
-        db.execute("INSERT INTO Categoria (idUsuario,idTipoCategoria ,descricao) VALUES  (?, 1, 'Transporte' );", idUsuario);
-        db.execute("INSERT INTO Categoria (idUsuario,idTipoCategoria ,descricao) VALUES  (?, 1, 'Lazer' );", idUsuario);
-        db.execute("INSERT INTO Categoria (idUsuario,idTipoCategoria ,descricao) VALUES  (?, 2, 'Salário' );", idUsuario);
-        db.execute("INSERT INTO Categoria (idUsuario,idTipoCategoria ,descricao) VALUES  (?, 2, 'Prêmio' );", idUsuario);
-        db.execute("INSERT INTO Categoria (idUsuario,idTipoCategoria ,descricao) VALUES  (?, 2, 'Investimento' );", idUsuario);
-        db.execute("INSERT INTO Categoria (idUsuario,idTipoCategoria ,descricao) VALUES  (?, 2, 'Benefício' );", idUsuario);
-        db.execute("INSERT INTO Categoria (idUsuario,idTipoCategoria ,descricao) VALUES  (?, 2, 'Outro' );", idUsuario);
+def fillCategoriasPadrao(idUsuario):
+    db.execute("INSERT INTO Categoria (idUsuario,idTipoCategoria ,descricao) VALUES  (?, 1, 'Alimentação' );", idUsuario);
+    db.execute("INSERT INTO Categoria (idUsuario,idTipoCategoria ,descricao) VALUES  (?, 1, 'Casa' );", idUsuario);
+    db.execute("INSERT INTO Categoria (idUsuario,idTipoCategoria ,descricao) VALUES  (?, 1, 'Serviços' );", idUsuario);
+    db.execute("INSERT INTO Categoria (idUsuario,idTipoCategoria ,descricao) VALUES  (?, 1, 'Saúde' );", idUsuario);
+    db.execute("INSERT INTO Categoria (idUsuario,idTipoCategoria ,descricao) VALUES  (?, 1, 'Imposto' );", idUsuario);
+    db.execute("INSERT INTO Categoria (idUsuario,idTipoCategoria ,descricao) VALUES  (?, 1, 'Transporte' );", idUsuario);
+    db.execute("INSERT INTO Categoria (idUsuario,idTipoCategoria ,descricao) VALUES  (?, 1, 'Lazer' );", idUsuario);
+    db.execute("INSERT INTO Categoria (idUsuario,idTipoCategoria ,descricao) VALUES  (?, 2, 'Salário' );", idUsuario);
+    db.execute("INSERT INTO Categoria (idUsuario,idTipoCategoria ,descricao) VALUES  (?, 2, 'Prêmio' );", idUsuario);
+    db.execute("INSERT INTO Categoria (idUsuario,idTipoCategoria ,descricao) VALUES  (?, 2, 'Investimento' );", idUsuario);
+    db.execute("INSERT INTO Categoria (idUsuario,idTipoCategoria ,descricao) VALUES  (?, 2, 'Benefício' );", idUsuario);
+    db.execute("INSERT INTO Categoria (idUsuario,idTipoCategoria ,descricao) VALUES  (?, 2, 'Outro' );", idUsuario);
