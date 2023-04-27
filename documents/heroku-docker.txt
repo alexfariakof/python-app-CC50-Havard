@@ -1,4 +1,11 @@
 https://www.youtube.com/watch?v=4axmcEZTE7M
 
 1 - heroku login
-2- heroku stack:set container --app despesas-frontend-react-docker
+2 - heroku stack:set container --app despesas-python
+3 - docker-compose build 
+4 - git add -A . 
+5 - git commit -m "Subindo imagem docker para heroku "  
+6 - docker tag <Image Id registry.heroku.com/despesas-python/web
+7 - heroku container:login   
+8 - heroku container:push web
+0 - heroku container:release web  
