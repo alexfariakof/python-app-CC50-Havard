@@ -1,5 +1,5 @@
 import os
-from CS50 import *
+from cs50 import SQL
 from flask import Flask, flash, jsonify, json, redirect, render_template, request, session
 from flask_session import Session
 from tempfile import mkdtemp
@@ -9,7 +9,7 @@ from helpers import apology, login_required, lookup, usd
 
 
  # Configure CS50 Library to use SQLite database
-db = SQL("sqlite:///DespesasPessoaisDB.db")
+    db = SQL("sqlite:///DespesasPessoaisDB.db")
 
 def create_app():
     # Configure application
