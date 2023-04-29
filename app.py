@@ -9,7 +9,7 @@ from helpers import apology, login_required, lookup, usd
 
 
  # Configure CS50 Library to use SQLite database
-    db = SQL("sqlite:///DespesasPessoaisDB.db")
+db = SQL("sqlite:///DespesasPessoaisDB.db")
 
 def create_app():
     # Configure application

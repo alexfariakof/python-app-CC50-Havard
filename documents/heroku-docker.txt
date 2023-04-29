@@ -7,5 +7,9 @@ https://www.youtube.com/watch?v=4axmcEZTE7M
 5 - git commit -m "Subindo imagem docker para heroku "  
 6 - docker tag <Image Id registry.heroku.com/despesas-python/web
 7 - heroku container:login   
-8 - heroku container:push web
-0 - heroku container:release web  
+8 - docker push registry.heroku.com/despesas-python/web
+9 - heroku container:push web
+10 - heroku container:release web  
+
+
+docker tag e95cce0cc4de Id registry.heroku.com/despesas-python/web
