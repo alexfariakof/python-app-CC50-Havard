@@ -65,10 +65,10 @@ muitas aplicações de software para armazenar e gerenciar dados. Ele é uma bib
            
            Esse arquivo contém coódigo javascript e Jquery para controlar tanto a página categoias.html com a categoriasList:
             
-            - Inicialização do mascaramento dos campos tipo dinheiro formatados em pt-br;
-            - Incialização das tabelas de listagem usando DataTables uma biblioteca que usa Jquery e Bootstrap para adcionar funcionalidade como paginação e pesquisa;
-            - Funções que realizam requisições por submit ou ajax para cada botão;
-            - Funções para controle e exbição de mensagens informantivas tais com erro ou se alguma procedimento foi executado corretamente como Incluão, alteração e exclusão;
+            + Inicialização do mascaramento dos campos tipo dinheiro formatados em pt-br;
+            + Incialização das tabelas de listagem usando DataTables uma biblioteca que usa Jquery e Bootstrap para adcionar funcionalidade como paginação e pesquisa;
+            + Funções que realizam requisições por submit ou ajax para cada botão;
+            + Funções para controle e exbição de mensagens informantivas tais com erro ou se alguma procedimento foi executado corretamente como Incluão, alteração e exclusão;
            
         - despesas.js
         - lancamentos.js
