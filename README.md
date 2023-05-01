@@ -58,12 +58,12 @@ muitas aplicações de software para armazenar e gerenciar dados. Ele é uma bib
        Essa pasta contém arquivos de imagens para serem utilizados no projeto.
        
     - js
-    - 
+     
        Essa pasta contém arquivos de script usado para adicionar interatividade e dinamismo as página web. Ele contém código que é executado pelo navegador do usuário e pode ser usado para manipular elementos HTML, criar animações, validar formulários, entre outras funcionalidades.
        
         - Categoria.js
            
-           Esse arquivo contém coódigo javascript e Jquery para controlar tanto a página categoias.html com a categoriasList:
+           Esse arquivo contém coódigo javascript e Jquery para controlar tanto a página categoias.html com a categoriasList.html :
             
             + Inicialização do mascaramento dos campos tipo dinheiro formatados em pt-br;
             + Incialização das tabelas de listagem usando DataTables uma biblioteca que usa Jquery e Bootstrap para adcionar funcionalidade como paginação e pesquisa;
@@ -71,8 +71,23 @@ muitas aplicações de software para armazenar e gerenciar dados. Ele é uma bib
             + Funções para controle e exbição de mensagens informantivas tais com erro ou se alguma procedimento foi executado corretamente como Incluão, alteração e exclusão;
            
         - despesas.js
+
+            Esse arquivo contém coódigo javascript e Jquery para controlar tanto a página despesas.html com a despesasList.html :
+            
+            + Inicialização do mascaramento dos campos tipo dinheiro formatados em pt-br;
+            + Incialização das tabelas de listagem usando DataTables uma biblioteca que usa Jquery e Bootstrap para adcionar funcionalidade como paginação e pesquisa;
+            + Funções que realizam requisições por submit ou ajax para cada botão;
+            + Funções para controle e exbição de mensagens informantivas tais com erro ou se alguma procedimento foi executado corretamente como Incluão, alteração e exclusão;
+
         - lancamentos.js
         - receitas.js
+           
+            Esse arquivo contém coódigo javascript e Jquery para controlar tanto a página receitas.html com a receitasist.html :
+            
+            + Inicialização do mascaramento dos campos tipo dinheiro formatados em pt-br;
+            + Incialização das tabelas de listagem usando DataTables uma biblioteca que usa Jquery e Bootstrap para adcionar funcionalidade como paginação e pesquisa;
+            + Funções que realizam requisições por submit ou ajax para cada botão;
+            + Funções para controle e exbição de mensagens informantivas tais com erro ou se alguma procedimento foi executado corretamente como Incluão, alteração e exclusão; 
     - favicon.ico
  
       É um pequeno ícone usado para identificar a página da web no navegador. Ele aparece na aba do navegador.
