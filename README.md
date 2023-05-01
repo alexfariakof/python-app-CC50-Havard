@@ -54,7 +54,7 @@ muitas aplicações de software para armazenar e gerenciar dados. Ele é uma bib
 
 - static 
     - img
-    -js
+    - js
         - Categoria.js
         - dashboard.js
         - despesas.js
@@ -71,5 +71,5 @@ muitas aplicações de software para armazenar e gerenciar dados. Ele é uma bib
     - login.html
     - receitas.html
     - receitasList.htmll
--app.py
--helpers.py
+- app.py
+- helpers.py
