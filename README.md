@@ -37,13 +37,13 @@ web de todos os tamanhos e complexidades.
 é a sigla para "Cascading Style Sheets" (Folhas de Estilo em Cascata), uma linguagem utilizada para definir a aparência e o layout de páginas web. CSS trabalha em conjunto com HTML e JavaScript, permitindo que os desenvolvedores criem estilos visuais, como cores, fontes, tamanhos, espaçamentos, bordas, efeitos de transição e muito mais. Ele separa a apresentação visual do conteúdo HTML, permitindo que o mesmo conteúdo seja exibido de várias maneiras em diferentes dispositivos, sem precisar duplicar o código. CSS é uma das tecnologias fundamentais para o desenvolvimento de sites modernos e responsivos, permitindo que os designers criem páginas web atraentes e acessíveis.
 
 
-* [Bootstrap 5](#Bootstrap 5)
+* [Bootstrap 5](#Bootstrap-5)
 é a versão mais recente do popular framework front-end para desenvolvimento web. Ele oferece um conjunto de recursos pré-estabelecidos para facilitar a criação de sites responsivos e móveis, como tipografia, formulários, botões, navegação, grades, componentes e muito mais. Algumas das principais diferenças entre o Bootstrap 5 e as versões anteriores incluem:
     * Maior foco em CSS puro: o Bootstrap 5 reduziu a dependência de JavaScript e aumentou a ênfase no CSS, tornando-o mais rápido e fácil de personalizar;
     * Redução no tamanho do arquivo: o Bootstrap 5 reduziu o tamanho do arquivo em comparação com as versões anteriores, tornando-o mais rápido para carregar;
     * Remoção do suporte ao Internet Explorer: o Bootstrap 5 abandonou o suporte ao Internet Explorer, o que significa que é possível utilizar recursos mais modernos e melhorar o desempenho;
     * Simplificação da documentação: a documentação do Bootstrap 5 foi simplificada e melhorada para facilitar a navegação e a compreensão dos recursos disponíveis.
-[Essas são apenas algumas das principais diferenças entre o Bootstrap 5 e as versões anteriores. No geral, o Bootstrap 5 oferece uma série de melhorias e recursos para facilitar o desenvolvimento web moderno e responsivo.
+Essas são apenas algumas das principais diferenças entre o Bootstrap 5 e as versões anteriores. No geral, o Bootstrap 5 oferece uma série de melhorias e recursos para facilitar o desenvolvimento web moderno e responsivo.
 
 * [SQLite3](#SQLite3) 
 é um sistema de gerenciamento de banco de dados relacional (RDBMS) que é incorporado em 
