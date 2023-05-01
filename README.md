@@ -49,8 +49,7 @@ muitas aplicações de software para armazenar e gerenciar dados. Ele é uma bib
 
 
 # Estrutura e Descrição da aplicação
- -db 
- 
+ -db  
    - dataset          
      
      Contém arquivos para popular as tabelas para realização de testes
