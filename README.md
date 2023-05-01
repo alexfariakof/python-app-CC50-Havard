@@ -15,7 +15,7 @@
 </h2>
 <p>
     Para o desenvolvimento desse trabalho foi realizada uma pesquisa direcionada à implementação que propõe a construção uma aplicação responsiva e iterativa aperfeiçoada de sistemas.
-    Essa aplicação foi baseada nas recnologias Pyhton, Flask, Jjinja, Javascript, Jquery, bootstrap5 e Sqlite3  como vabco de dados.
+    Essa aplicação foi baseada nas tecnologias Pyhton, Flask, Jjinja, Javascript, Jquery, bootstrap5 e Sqlite3  como vabco de dados.
 Para o desenvolvimento teórico desse trabalho foi realizada uma pesquisa direcionada à implementação que propõe a construção iterativa aperfeiçoada de sistemas.
     A aplicação proposta permitirá que o usuário crie uma conta e cadastre e controle  suas despesas de entrada e saída "Despesas e Receitas",
 </p>
@@ -43,22 +43,28 @@ Para o desenvolvimento teórico desse trabalho foi realizada uma pesquisa direci
          </p>
     </li>
     <li>
-        <h4></h4>
+        <h4>JavaScript</h4>
         <p>
-
+            É uma linguagem de programação que permite a criação de aplicações web modernas e interativas. Com ele, é possível adicionar recursos dinâmicos às páginas web, como animações, validação de formulários, interação com usuários e muito mais. Além disso, JavaScript é utilizado tanto no lado do cliente, executado pelo navegador, quanto no lado do servidor, por meio do Node.js. Com isso, é possível criar aplicações web completas utilizando apenas uma linguagem de programação. A sintaxe de JavaScript é simples e fácil de aprender, o que a torna uma das linguagens mais populares e utilizadas no desenvolvimento web atualmente.
         </p>
     </li>
     <li>
-        <h4></h4>
+        <h4>jQuery</h4>
         <p>
-
+            É uma biblioteca de JavaScript que simplifica o desenvolvimento web ao oferecer uma série de funcionalidades prontas para uso, como manipulação de elementos HTML, eventos, animações, AJAX e muito mais. Com jQuery, é possível escrever códigos mais simples e concisos, reduzindo o tempo de desenvolvimento e melhorando a experiência do usuário. Além disso, jQuery é suportado por todos os navegadores modernos e possui uma grande comunidade, o que significa que há muitos recursos e plugins disponíveis para estender suas funcionalidades. Por isso, jQuery é amplamente utilizado em projetos web de todos os tamanhos e complexidades.
         </p>
     </li>
     <li>
-        <h4></h4>
+        <h4>Bootstrap 5</h4>
         <p>
-
-        </p>
+        É a versão mais recente do popular framework front-end para desenvolvimento web. Ele oferece um conjunto de recursos pré-estabelecidos para facilitar a criação de sites responsivos e móveis, como tipografia, formulários, botões, navegação, grades, componentes e muito mais. Algumas das principais diferenças entre o Bootstrap 5 e as versões anteriores incluem:
+        <ul>
+        -Maior foco em CSS puro: o Bootstrap 5 reduziu a dependência de JavaScript e aumentou a ênfase no CSS, tornando-o mais rápido e fácil de personalizar;
+        -Redução no tamanho do arquivo: o Bootstrap 5 reduziu o tamanho do arquivo em comparação com as versões anteriores, tornando-o mais rápido para carregar;
+        -Remoção do suporte ao Internet Explorer: o Bootstrap 5 abandonou o suporte ao Internet Explorer, o que significa que é possível utilizar recursos mais modernos e melhorar o desempenho;
+        -Simplificação da documentação: a documentação do Bootstrap 5 foi simplificada e melhorada para facilitar a navegação e a compreensão dos recursos disponíveis.
+        Essas são apenas algumas das principais diferenças entre o Bootstrap 5 e as versões anteriores. No geral, o Bootstrap 5 oferece uma série de melhorias e recursos para facilitar o desenvolvimento web moderno e responsivo.
+                </p>
     </li>
     <li>
         <h4></h4>
