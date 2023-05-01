@@ -68,8 +68,8 @@ muitas aplicações de software para armazenar e gerenciar dados. Ele é uma bib
       É um pequeno ícone usado para identificar a página da web no navegador. Ele aparece na aba do navegador.
     
     - styles.css
-
-     Neste arquivo contém a folha de estilos utilizado usada para definir a aparência e o layout dos elementos HTML da aplicação. Ele é usado para definir as propriedades visuais dos elementos, como cores, fontes, tamanhos e posicionamentos, além de fornecer estilos para animações e efeitos visuais.
+      
+      Neste arquivo contém a folha de estilos utilizado usada para definir a aparência e o layout dos elementos HTML da aplicação. Ele é usado para definir as               propriedades visuais dos elementos, como cores, fontes, tamanhos e posicionamentos, além de fornecer estilos para animações e efeitos visuais.
      
 - templates    
     - categorias.html
