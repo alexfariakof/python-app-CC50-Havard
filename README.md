@@ -112,17 +112,44 @@ muitas aplicações de software para armazenar e gerenciar dados. Ele é uma bib
       Neste arquivo contém a folha de estilos utilizado usada para definir a aparência e o layout dos elementos HTML da aplicação. Ele é usado para definir as               propriedades visuais dos elementos, como cores, fontes, tamanhos e posicionamentos, além de fornecer estilos para animações e efeitos visuais.
      
 - templates    
-    - categorias.html
-    - categoriasList.html
-    - dashboard.html
-    - despesas.html
-    - despesasList.html
-    - lancamentos.html
     - layout.html
     - login.html
+     
+     ![login](https://user-images.githubusercontent.com/42475620/235551239-1742f2ac-0537-482b-b5dd-43d69bcb5f12.jpg)
+
+    - register.html
+    
+     ![register](https://user-images.githubusercontent.com/42475620/235551271-769936fa-eeaf-42d6-bb47-8ee8cbf56e13.jpg)
+
+    - categorias.html
+    
+     ![categoria](https://user-images.githubusercontent.com/42475620/235551460-aad4e151-b368-4352-a074-997807a30a60.jpg)
+
+    - categoriasList.html
+
+    ![categoria](https://user-images.githubusercontent.com/42475620/235551287-d5270081-392f-48ae-8e3e-2d04b8284e70.jpg)
+
+    - despesas.html
+    
+    ![despesas](https://user-images.githubusercontent.com/42475620/235551500-b4e008de-610c-4ba7-8b1d-7fa88e563786.jpg)
+
+    - despesasList.html
+    
+    ![despesasList](https://user-images.githubusercontent.com/42475620/235551514-0d894c74-4286-4d7f-bbd0-8ccc5b599365.jpg)
+
+    - lancamentos.html
+    
+    ![lancamentos](https://user-images.githubusercontent.com/42475620/235551520-0b709b5f-b79b-497d-963f-bc1f0fb2afad.jpg)
+
+    
     - receitas.html
+    
+    ![register](https://user-images.githubusercontent.com/42475620/235551569-fa282a09-66b5-46fc-b56e-dafd90b10cd9.jpg)
+
     - receitasList.htmll
-    - 
+    
+    ![recaitasLIst](https://user-images.githubusercontent.com/42475620/235551582-632979b6-4fc4-4a51-a5d1-afd1c37d80b3.jpg)
+
 - app.py
     
     Nesse arquivo contém código Python usado definir e executar toda a  lógica de negócios da aplicação. É o arquivo principal do projeto Flask, que é um framework web em Python.
