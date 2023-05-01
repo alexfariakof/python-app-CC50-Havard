@@ -8,10 +8,10 @@
 
 
 # Descrição
-[^1]: Para o desenvolvimento desse trabalho foi realizada uma pesquisa direcionada à implementação que propõe a construção uma aplicação responsiva e iterativa aperfeiçoada de sistemas.
-[^1]: Essa aplicação foi baseada nas tecnologias Pyhton, Flask, Jjinja, Javascript, Jquery, bootstrap5 e Sqlite3  como vabco de dados.
-[^1]: Para o desenvolvimento teórico desse trabalho foi realizada uma pesquisa direcionada à implementação que propõe a construção iterativa aperfeiçoada de sistemas.
-[^1]: A aplicação proposta permitirá que o usuário crie uma conta e cadastre e controle  suas despesas de entrada e saída "Despesas e Receitas",
+### Para o desenvolvimento desse trabalho foi realizada uma pesquisa direcionada à implementação que propõe a construção uma aplicação responsiva e iterativa aperfeiçoada de sistemas.
+### Essa aplicação foi baseada nas tecnologias Pyhton, Flask, Jjinja, Javascript, Jquery, bootstrap5 e Sqlite3  como vabco de dados.
+Para o desenvolvimento teórico desse trabalho foi realizada uma pesquisa direcionada à implementação que propõe a construção iterativa aperfeiçoada de sistemas.
+### A aplicação proposta permitirá que o usuário crie uma conta e cadastre e controle  suas despesas de entrada e saída "Despesas e Receitas",
 
 # Tecnologias Utilizadas
 
