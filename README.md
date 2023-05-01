@@ -31,9 +31,9 @@ Para o desenvolvimento teórico desse trabalho foi realizada uma pesquisa direci
         </p>
     </li>
     <li>
-        <h4></h4>
+        <h4>Flask</h4>
         <p>
-
+            É um microframework para desenvolvimento de aplicações web em Python. Ele foi criado por Armin Ronacher em 2010 e é conhecido por ser leve, flexível e fácil de usar. Flask suporta extensões para adicionar funcionalidades à aplicação, como autenticação, banco de dados, cache, entre outras. Ele também utiliza a Jinja2 como template engine, permitindo a criação de templates dinâmicos para as páginas web. Flask é uma ótima escolha para projetos pequenos e médios que não necessitam de um framework completo, como o Django. Ele é usado por empresas como Netflix, Airbnb e Lyft. Além disso, a comunidade Flask é ativa e há muitos recursos disponíveis para aprender e utilizar o framework.
         </p>
     </li>
     <li>
