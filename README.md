@@ -93,7 +93,8 @@ Para o desenvolvimento teórico desse trabalho foi realizada uma pesquisa direci
     <li>
         <h4>SQLite3</h4>
         <p> 
-            É um sistema de gerenciamento de banco de dados relacional (RDBMS) que é incorporado em muitas aplicações de software para armazenar e gerenciar dados. Ele é uma biblioteca escrita em linguagem C que fornece uma solução completa de banco de dados em um único arquivo, sem necessidade de um servidor ou configurações complexas. SQLite3 é uma das formas mais populares de banco de dados devido à sua eficiência, confiabilidade, portabilidade e facilidade de uso. É amplamente utilizado em aplicações móveis, navegadores, sistemas embarcados e outras aplicações que exigem armazenamento de dados leves e flexíveis. A sintaxe do SQL do SQLite3 é bastante semelhante à sintaxe de outros sistemas de gerenciamento de banco de dados, como MySQL e PostgreSQL.
+            É um sistema de gerenciamento de banco de dados relacional (RDBMS) que é incorporado em 
+         muitas aplicações de software para armazenar e gerenciar dados. Ele é uma biblioteca escrita em linguagem C que fornece uma solução completa de banco de dados em um único arquivo, sem necessidade de um servidor ou configurações complexas. SQLite3 é uma das formas mais populares de banco de dados devido à sua eficiência, confiabilidade, portabilidade e facilidade de uso. É amplamente utilizado em aplicações móveis, navegadores, sistemas embarcados e outras aplicações que exigem armazenamento de dados leves e flexíveis. A sintaxe do SQL do SQLite3 é bastante semelhante à sintaxe de outros sistemas de gerenciamento de banco de dados, como MySQL e PostgreSQL.
         </p>
     </li>
 </ul>
