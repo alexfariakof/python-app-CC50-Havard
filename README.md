@@ -37,10 +37,10 @@ Para o desenvolvimento teórico desse trabalho foi realizada uma pesquisa direci
         </p>
     </li>
     <li>
-        <h4></h4>
+        <h4>Jinja</h4>
         <p>
-
-        </p>
+            É uma engine de templates em Python utilizada principalmente em frameworks web, como o Flask e o Django. Ela permite a criação de templates dinâmicos, onde o conteúdo pode ser preenchido com dados vindos de variáveis e objetos Python. Jinja utiliza uma sintaxe simples e intuitiva para definir os templates, e possui recursos avançados como herança de templates e macros, permitindo a criação de templates complexos e reutilizáveis. Além disso, Jinja é altamente customizável e suporta extensões para adicionar funcionalidades específicas ao template engine. Jinja é amplamente utilizado na comunidade Python para desenvolvimento web e também para geração de documentos e relatórios dinâmicos.
+         </p>
     </li>
     <li>
         <h4></h4>
