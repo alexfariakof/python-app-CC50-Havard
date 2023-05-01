@@ -54,6 +54,18 @@ Para o desenvolvimento teórico desse trabalho foi realizada uma pesquisa direci
             É uma biblioteca de JavaScript que simplifica o desenvolvimento web ao oferecer uma série de funcionalidades prontas para uso, como manipulação de elementos HTML, eventos, animações, AJAX e muito mais. Com jQuery, é possível escrever códigos mais simples e concisos, reduzindo o tempo de desenvolvimento e melhorando a experiência do usuário. Além disso, jQuery é suportado por todos os navegadores modernos e possui uma grande comunidade, o que significa que há muitos recursos e plugins disponíveis para estender suas funcionalidades. Por isso, jQuery é amplamente utilizado em projetos web de todos os tamanhos e complexidades.
         </p>
     </li>
+        <li>
+        <h4>jQuery</h4>
+        <p>
+            É uma biblioteca de JavaScript que simplifica o desenvolvimento web ao oferecer uma série de funcionalidades prontas para uso, como manipulação de elementos HTML, eventos, animações, AJAX e muito mais. Com jQuery, é possível escrever códigos mais simples e concisos, reduzindo o tempo de desenvolvimento e melhorando a experiência do usuário. Além disso, jQuery é suportado por todos os navegadores modernos e possui uma grande comunidade, o que significa que há muitos recursos e plugins disponíveis para estender suas funcionalidades. Por isso, jQuery é amplamente utilizado em projetos web de todos os tamanhos e complexidades.
+        </p>
+    </li>
+    <li>
+        <h4>CSS</h4>
+        <p>
+            È a sigla para "Cascading Style Sheets" (Folhas de Estilo em Cascata), uma linguagem utilizada para definir a aparência e o layout de páginas web. CSS trabalha em conjunto com HTML e JavaScript, permitindo que os desenvolvedores criem estilos visuais, como cores, fontes, tamanhos, espaçamentos, bordas, efeitos de transição e muito mais. Ele separa a apresentação visual do conteúdo HTML, permitindo que o mesmo conteúdo seja exibido de várias maneiras em diferentes dispositivos, sem precisar duplicar o código. CSS é uma das tecnologias fundamentais para o desenvolvimento de sites modernos e responsivos, permitindo que os designers criem páginas web atraentes e acessíveis.
+        </p>
+    </li>
     <li>
         <h4>Bootstrap 5</h4>
             <p>
@@ -79,9 +91,9 @@ Para o desenvolvimento teórico desse trabalho foi realizada uma pesquisa direci
         </p>
     </li>
     <li>
-        <h4></h4>
-        <p>
-
+        <h4>SQLite3</h4>
+        <p> 
+            É um sistema de gerenciamento de banco de dados relacional (RDBMS) que é incorporado em muitas aplicações de software para armazenar e gerenciar dados. Ele é uma biblioteca escrita em linguagem C que fornece uma solução completa de banco de dados em um único arquivo, sem necessidade de um servidor ou configurações complexas. SQLite3 é uma das formas mais populares de banco de dados devido à sua eficiência, confiabilidade, portabilidade e facilidade de uso. É amplamente utilizado em aplicações móveis, navegadores, sistemas embarcados e outras aplicações que exigem armazenamento de dados leves e flexíveis. A sintaxe do SQL do SQLite3 é bastante semelhante à sintaxe de outros sistemas de gerenciamento de banco de dados, como MySQL e PostgreSQL.
         </p>
     </li>
 </ul>
