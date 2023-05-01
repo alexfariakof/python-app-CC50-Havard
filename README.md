@@ -55,9 +55,10 @@ muitas aplicações de software para armazenar e gerenciar dados. Ele é uma bib
 - static 
     - img
     
-       Contém arquivos de imagens para serem utilizados no projeto.
+       Essa pasta contém arquivos de imagens para serem utilizados no projeto.
        
     - js
+       Essa pasta contém arquivos de script usado para adicionar interatividade e dinamismo as página web. Ele contém código que é executado pelo navegador do usuário e pode ser usado para manipular elementos HTML, criar animações, validar formulários, entre outras funcionalidades.
         - Categoria.js
         - dashboard.js
         - despesas.js
