@@ -56,15 +56,17 @@ Para o desenvolvimento teórico desse trabalho foi realizada uma pesquisa direci
     </li>
     <li>
         <h4>Bootstrap 5</h4>
-        <p>
-        É a versão mais recente do popular framework front-end para desenvolvimento web. Ele oferece um conjunto de recursos pré-estabelecidos para facilitar a criação de sites responsivos e móveis, como tipografia, formulários, botões, navegação, grades, componentes e muito mais. Algumas das principais diferenças entre o Bootstrap 5 e as versões anteriores incluem:
-        <ul>
-        -Maior foco em CSS puro: o Bootstrap 5 reduziu a dependência de JavaScript e aumentou a ênfase no CSS, tornando-o mais rápido e fácil de personalizar;
-        -Redução no tamanho do arquivo: o Bootstrap 5 reduziu o tamanho do arquivo em comparação com as versões anteriores, tornando-o mais rápido para carregar;
-        -Remoção do suporte ao Internet Explorer: o Bootstrap 5 abandonou o suporte ao Internet Explorer, o que significa que é possível utilizar recursos mais modernos e melhorar o desempenho;
-        -Simplificação da documentação: a documentação do Bootstrap 5 foi simplificada e melhorada para facilitar a navegação e a compreensão dos recursos disponíveis.
-        Essas são apenas algumas das principais diferenças entre o Bootstrap 5 e as versões anteriores. No geral, o Bootstrap 5 oferece uma série de melhorias e recursos para facilitar o desenvolvimento web moderno e responsivo.
-                </p>
+            <p>
+                É a versão mais recente do popular framework front-end para desenvolvimento web. Ele oferece um conjunto de recursos pré-estabelecidos para facilitar a criação de sites responsivos e móveis, como tipografia, formulários, botões, navegação, grades, componentes e muito mais. Algumas das principais diferenças entre o Bootstrap 5 e as versões anteriores incluem:
+            </p>
+                *Maior foco em CSS puro: o Bootstrap 5 reduziu a dependência de JavaScript e aumentou a ênfase no CSS, tornando-o mais rápido e fácil de personalizar;
+                *Redução no tamanho do arquivo: o Bootstrap 5 reduziu o tamanho do arquivo em comparação com as versões anteriores, tornando-o mais rápido para carregar;
+                *Remoção do suporte ao Internet Explorer: o Bootstrap 5 abandonou o suporte ao Internet Explorer, o que significa que é possível utilizar recursos mais modernos e melhorar o desempenho;
+                *Simplificação da documentação: a documentação do Bootstrap 5 foi simplificada e melhorada para facilitar a navegação e a compreensão dos recursos disponíveis.
+            <p>
+                Essas são apenas algumas das principais diferenças entre o Bootstrap 5 e as versões anteriores. No geral, o Bootstrap 5 oferece uma série de melhorias e recursos para facilitar o desenvolvimento web moderno e responsivo.
+            </p>
+        </p>
     </li>
     <li>
         <h4></h4>
