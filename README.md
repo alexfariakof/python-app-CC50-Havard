@@ -15,7 +15,7 @@
 
 # Tecnologias Utilizadas
 
-# - Python 3
+ - Python 3
 
 [^1]É uma linguagem de programação de alto nível e interpretada, conhecida por sua simplicidade, legibilidade e facilidade de uso. Foi criada por Guido van Rossum e lançada pela primeira vez em 1991. Python suporta vários paradigmas de programação, incluindo programação procedural, orientada a objetos e funcional. Possui uma grande biblioteca padrão e um vasto ecossistema de bibliotecas e ferramentas de terceiros, tornando-a uma escolha popular para uma ampla variedade de aplicações, incluindo desenvolvimento web, computação científica, análise de dados, aprendizado de máquina e inteligência artificial. Python é um software livre e de código aberto, e é executado em muitas plataformas, incluindo Windows, macOS, Linux e UNIX.
 
