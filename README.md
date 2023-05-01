@@ -50,3 +50,28 @@ Essas são apenas algumas das principais diferenças entre o Bootstrap 5 e as ve
 * [SQLite3](#SQLite3) 
 é um sistema de gerenciamento de banco de dados relacional (RDBMS) que é incorporado em 
 muitas aplicações de software para armazenar e gerenciar dados. Ele é uma biblioteca escrita em linguagem C que fornece uma solução completa de banco de dados em um único arquivo, sem necessidade de um servidor ou configurações complexas. SQLite3 é uma das formas mais populares de banco de dados devido à sua eficiência, confiabilidade, portabilidade e facilidade de uso. É amplamente utilizado em aplicações móveis, navegadores, sistemas embarcados e outras aplicações que exigem armazenamento de dados leves e flexíveis. A sintaxe do SQL do SQLite3 é bastante semelhante à sintaxe de outros sistemas de gerenciamento de banco de dados, como MySQL e PostgreSQL.
+
+
+# Estrutura e Descrição da aplicação
+
+- static 
+    - img
+    -js
+        - Categoria.js
+        - dashboard.js
+        - despesas.js
+        - lancamentos.js
+        - receitas.js
+- templates    
+    - categorias.html
+    - categoriasList.html
+    - dashboard.html
+    - despesas.html
+    - despesasList.html
+    - lancamentos.html
+    - layout.html
+    - login.html
+    - receitas.html
+    - receitasList.htmll
+-app.py
+-helpers.py
