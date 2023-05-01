@@ -54,6 +54,7 @@ muitas aplicações de software para armazenar e gerenciar dados. Ele é uma bib
 
 - static 
     - img
+    
        Contém arquivos de imagens para serem utilizados no projeto.
        
     - js
