@@ -49,7 +49,15 @@ muitas aplicações de software para armazenar e gerenciar dados. Ele é uma bib
 
 
 # Estrutura e Descrição da aplicação
-
+-db 
+    - dataset
+      
+      Contém arquivos para popular as tabelas para realização de testes
+      
+    - migrations    
+      
+       Contém arquivos para criação de todas as tabelas do banco de dados
+    
 - static 
     - img
     
@@ -83,7 +91,7 @@ muitas aplicações de software para armazenar e gerenciar dados. Ele é uma bib
              Esse arquivo contém coódigo javascript e Jquery para controlar tanto a página lancamentos.html :
 
             + Incialização das tabelas de listagem usando DataTables uma biblioteca que usa Jquery e Bootstrap para adcionar funcionalidade como paginação e pesquisa;
-            + Funções que realizam requisições por submit ou ajax para cada botão;
+            + Funções que realizam requisições por submit ou ajax para os botões editar e deletar;
             + Funções para controle e exbição de mensagens informantivas tais com erro ou se alguma procedimento foi executado corretamente como Incluão, alteração e  
             
         - receitas.js
@@ -114,5 +122,7 @@ muitas aplicações de software para armazenar e gerenciar dados. Ele é uma bib
     - login.html
     - receitas.html
     - receitasList.htmll
+    - 
 - app.py
-- helpers.py
+    
+    Nesse arquivo contém código Python usado definir e executar toda a  lógica de negócios da aplicação. É o arquivo principal do projeto Flask, que é um framework web em Python.
