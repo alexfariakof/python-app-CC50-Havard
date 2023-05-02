@@ -66,7 +66,7 @@ muitas aplicações de software para armazenar e gerenciar dados. Ele é uma bib
 - static 
     - img
     
-       Essa pasta contém arquivos de imagens para serem utilizados no projeto.
+       Essa pasta contém arquivos de imagens para serem utilizados na aplicação.
        
     - js
      
@@ -118,6 +118,9 @@ muitas aplicações de software para armazenar e gerenciar dados. Ele é uma bib
      
 - templates    
     - layout.html
+      
+      Contém um modelo de layout comum para todas as páginas da aplicação
+      
     - login.html
      
      ![login](https://user-images.githubusercontent.com/42475620/235551239-1742f2ac-0537-482b-b5dd-43d69bcb5f12.jpg)
@@ -154,3 +157,9 @@ muitas aplicações de software para armazenar e gerenciar dados. Ele é uma bib
     - receitasList.htmll
     
     ![recaitasLIst](https://user-images.githubusercontent.com/42475620/235551582-632979b6-4fc4-4a51-a5d1-afd1c37d80b3.jpg)
+
+# Referências e Agradecimentos
+
+ ![conclusão](https://user-images.githubusercontent.com/42475620/235552402-412d47bf-76f8-4446-9b89-7e0ce8c1fe4d.jpg)
+
+ 
