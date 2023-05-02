@@ -54,6 +54,10 @@ muitas aplicações de software para armazenar e gerenciar dados. Ele é uma bib
     
     Nesse arquivo contém código Python usado definir e executar toda a  lógica de negócios da aplicação. É o arquivo principal do projeto Flask, que é um framework web em Python.
     
+- DespesasPessoaisDB.db
+ 
+   Arquivo que representa a base de dados da aplicação.
+ 
 - db  
     + dataset             
       
