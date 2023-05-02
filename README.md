@@ -49,6 +49,11 @@ muitas aplicações de software para armazenar e gerenciar dados. Ele é uma bib
 
 
 # Estrutura e Descrição da aplicação
+
+- app.py
+    
+    Nesse arquivo contém código Python usado definir e executar toda a  lógica de negócios da aplicação. É o arquivo principal do projeto Flask, que é um framework web em Python.
+    
 - db  
     + dataset             
       
@@ -131,7 +136,7 @@ muitas aplicações de software para armazenar e gerenciar dados. Ele é uma bib
 
     - despesas.html
     
-    ![despesas](https://user-images.githubusercontent.com/42475620/235551500-b4e008de-610c-4ba7-8b1d-7fa88e563786.jpg)
+    ![despesas](https://user-images.githubusercontent.com/42475620/235551898-2bd35f6b-aae8-4091-adf0-021224bc85b4.jpg)
 
     - despesasList.html
     
@@ -149,7 +154,3 @@ muitas aplicações de software para armazenar e gerenciar dados. Ele é uma bib
     - receitasList.htmll
     
     ![recaitasLIst](https://user-images.githubusercontent.com/42475620/235551582-632979b6-4fc4-4a51-a5d1-afd1c37d80b3.jpg)
-
-- app.py
-    
-    Nesse arquivo contém código Python usado definir e executar toda a  lógica de negócios da aplicação. É o arquivo principal do projeto Flask, que é um framework web em Python.
