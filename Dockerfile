@@ -16,6 +16,7 @@ RUN python -m pip install gunicorn
 RUN python -m pip install CS50
 RUN python -m pip install flask_session
 RUN python -m pip install requests
+RUN python -m pip install locales
 
 WORKDIR /app
 COPY . /app
