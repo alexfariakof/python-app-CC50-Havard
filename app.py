@@ -319,6 +319,8 @@ def create_app():
 
             if total != 0:
                 total = usdToBrl(str(total))
+            else:
+                total = 'R$ 0,00'
 
             saldo = getSaldo(idUsuario)
             if saldo != 0:
@@ -343,8 +345,11 @@ def create_app():
         total = 0
         for dado in dados:
                 total = total + dado['valor']
-
-        total = usdToBrl(str(total))
+                
+        if total != 0:
+            total = usdToBrl(str(total))
+        else:
+            total = 'R$ 0,00'
 
         for dado in dados:
             dado['valor'] =  usdToBrlWithSymbol(str(dado['valor']))
@@ -458,6 +463,8 @@ def create_app():
 
             if total != 0:
                 total = usdToBrl(str(total))
+            else:
+                total = 'R$ 0,00'
 
             saldo = getSaldo(idUsuario)
             if saldo != 0:
@@ -488,7 +495,11 @@ def create_app():
         for dado in dados:
                 total = total + dado['valor']
 
-        total = usdToBrl(str(total))
+        if total !=0:
+            total = usdToBrl(str(total))
+        else:
+            total = 'R$ 0,00'
+            
 
         for dado in dados:
             dado['valor'] =  usdToBrlWithSymbol(str(dado['valor']))
