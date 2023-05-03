@@ -11,12 +11,8 @@ ENV PYTHONDONTWRITEBYTECODE=1
 ENV PYTHONUNBUFFERED=1
 
 # Install pip requirements
-RUN python -m pip install flask
-RUN python -m pip install gunicorn
-RUN python -m pip install CS50
-RUN python -m pip install flask_session
-RUN python -m pip install requests
-RUN python -m pip install locales
+COPY requirements.txt .
+RUN python -m pip install -r requirements.txt
 
 WORKDIR /app
 COPY . /app

@@ -4,4 +4,3 @@ gunicorn==20.1.0
 CS50
 flask_session
 requests
-locales
