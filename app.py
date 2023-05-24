@@ -574,3 +574,5 @@ def fillCategoriasPadrao(idUsuario):
     db.execute("INSERT INTO Categoria (idUsuario,idTipoCategoria ,descricao) VALUES  (?, 2, 'Investimento' );", idUsuario);
     db.execute("INSERT INTO Categoria (idUsuario,idTipoCategoria ,descricao) VALUES  (?, 2, 'Benefício' );", idUsuario);
     db.execute("INSERT INTO Categoria (idUsuario,idTipoCategoria ,descricao) VALUES  (?, 2, 'Outro' );", idUsuario);
+
+app.run(debug=True) 
