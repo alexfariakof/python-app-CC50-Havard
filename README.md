@@ -5,7 +5,7 @@
 # Acesso ao protótipo do projeto
 </h2>
 <h6>
- Pode Acessar usuário já criado como teste ou criar um novo usuário
+ * []Pode Acessar usuário já criado como teste ou criar um novo usuário
  <p>
   login:root
   <br>
