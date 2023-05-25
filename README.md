@@ -11,14 +11,6 @@
    <br>
     senha:toor
   </p>
-
-
-Video Demo no yutube:![ Desoesas Pessoais:](https://www.youtube.com/watch?v=LeIYKaxELHQ").
-
-<https://user-images.githubusercontent.com/42475620/233794968-e2418a1b-dd9f-4bb4-b73e-76956ba57359.mp4>
-
-
-
 # Descrição
 Para o desenvolvimento desse trabalho foi realizada uma pesquisa direcionada à implementação que propõe a construção uma aplicação responsiva e iterativa aperfeiçoada de sistemas.
 Essa aplicação foi baseada nas tecnologias Pyhton, Flask, Jjinja, Javascript, Jquery, bootstrap5 e Sqlite3  como vabco de dados.
