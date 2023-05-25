@@ -1,6 +1,19 @@
 # Despesas Pessoaias 
 
- Video Demo no yutube:![ Desoesas Pessoais:](https://www.youtube.com/watch?v=LeIYKaxELHQ").
+
+<h2 align="left"> 
+# Acesso ao protótipo do projeto
+ <a href="http://despesas-python.dmg4c8cnazhvhaep.eastus.azurecontainer.io:5000" target="_blank" >Despesas Pessoais</a>
+</h2>
+* Use o usuário já criado como teste ou crie um novo usuário.
+  <p>
+   login:root
+   <br>
+    senha:toor
+  </p>
+
+
+Video Demo no yutube:![ Desoesas Pessoais:](https://www.youtube.com/watch?v=LeIYKaxELHQ").
 
 <https://user-images.githubusercontent.com/42475620/233794968-e2418a1b-dd9f-4bb4-b73e-76956ba57359.mp4>
 
