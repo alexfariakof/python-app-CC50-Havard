@@ -21,6 +21,9 @@
 **/node_modules
 **/npm-debug.log
 **/obj
+**/documents
+**/db
+**/flask_session
 **/secrets.dev.yaml
 **/values.dev.yaml
 LICENSE
