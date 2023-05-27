@@ -1,5 +1,5 @@
 var xValues = ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Junho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"];
-var yDespesas = [80, 49, 44, 24, 15, 35, 55, 49, 44, 24, 15, 40];
+var yDespesas = ['None', 49, 44, 24, 15, 35, 55, 49, 44, 24, 15, 40];
 var yReceitas = [40, 15, 24, 44, 49, 55, 35, 15, 24, 44, 49, 90];
 var barColors = ["red", "green", "blue", "orange", "brown", "gray","red", "green", "blue", "orange", "brown", "gray"];
 backgroundColor = [
@@ -36,12 +36,17 @@ backgroundColor = [
 
 
 $(document).ready(function () {
+    printChart(yDespesas);
+});
+
+
+var printChart = function (dados){
     new Chart("myChart", {
         type: "bar",
         data: {
             labels: xValues,
             datasets: [{
-                data: yDespesas,
+                data: dados,
                 backgroundColor: backgroundColor,
                 borderColor:borderColor,
                 borderWidth: 1 
@@ -55,4 +60,36 @@ $(document).ready(function () {
             }
         }
     });
-});
+
+}
+
+var handleGerarGrafico = function () {
+    var _idTipoCategoria =  $('#idTipoCategoria').val()
+    var _Ano = $('#Ano').val()
+
+    $.ajax({
+        url: "dashboard",
+        type: 'POST',
+        data: {
+            idTipoCategoria: _idTipoCategoria,
+            Ano: _Ano
+        },
+        beforeSend: function () {
+            $('.modal').show();
+        }
+    }).done(function (response) {
+        if (response.status === '200') {
+            printChart(Object.values(response.dados))
+        }
+        setTimeout(function () {
+            $('.modal').hide();
+        }, 1000);
+
+    }).fail(function (jqXHR, textStatus, msg) {
+        alert(msg);
+        setTimeout(function () {
+            $('.modal').hide();
+        }, 1000);
+
+    });
+}
