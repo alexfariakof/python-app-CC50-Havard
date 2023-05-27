@@ -138,3 +138,22 @@ Select  lancamentos.*
                       Inner Join Categoria cr on r.idCategoria = cr.id
                      where r.idUsuario = 1
                     ) as lancamentos;
+
+
+Select strftime('%d/%m/%Y', data), * from despesa;
+Select strftime('%Y', data) from despesa;
+Select 
+(Select sum(valor) from despesa where idUsuario = 2  and strftime('%m', data) like '01' and strftime('%Y', data) like '2023') as Janeiro,
+(Select sum(valor) from despesa where idUsuario = 2  and strftime('%m', data) like '02' and strftime('%Y', data) like '2023') as Fevereiro,
+(Select sum(valor) from despesa where idUsuario = 2  and strftime('%m', data) like '03' and strftime('%Y', data) like '2023') as Março,
+(Select sum(valor) from despesa where idUsuario = 2  and strftime('%m', data) like '04' and strftime('%Y', data) like '2023') as Abril,
+(Select sum(valor) from despesa where idUsuario = 2  and strftime('%m', data) like '05' and strftime('%Y', data) like '2023') as Maio,
+(Select sum(valor) from despesa where idUsuario = 2  and strftime('%m', data) like '06' and strftime('%Y', data) like '2023') as Junho,
+(Select sum(valor) from despesa where idUsuario = 2  and strftime('%m', data) like '07' and strftime('%Y', data) like '2023') as Julho,
+(Select sum(valor) from despesa where idUsuario = 2  and strftime('%m', data) like '08' and strftime('%Y', data) like '2023') as Agosto,
+(Select sum(valor) from despesa where idUsuario = 2  and strftime('%m', data) like '09' and strftime('%Y', data) like '2023') as Setembro,
+(Select sum(valor) from despesa where idUsuario = 2  and strftime('%m', data) like '10' and strftime('%Y', data) like '2023') as Outubro,
+(Select sum(valor) from despesa where idUsuario = 2  and strftime('%m', data) like '11' and strftime('%Y', data) like '2023') as Novembro,
+(Select sum(valor) from despesa where idUsuario = 2  and strftime('%m', data) like '12' and strftime('%Y', data) like '2023') as Dezembro
+; 
+
