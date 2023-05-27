@@ -128,9 +128,48 @@ def logout():
     # Redirect user to login form
     return redirect("/")
 
-@app.route("/dashboard")
+@app.route("/dashboard", methods=["GET", "POST"])
 @login_required
 def dashboard():
+    if request.method == "POST":          
+       idUsuario = session["user_id"]
+       idTipoCategoria = request.form.get("idTipoCategoria")
+       Ano =  request.form.get("Ano")    
+       sql = ''
+       if idTipoCategoria == '1':
+          sql = """Select 
+            (Select sum(valor) from despesa where idUsuario = {0}  and strftime('%m', data) like '01' and strftime('%Y', data) like {1}) as Janeiro,
+            (Select sum(valor) from despesa where idUsuario = {0}  and strftime('%m', data) like '02' and strftime('%Y', data) like {1}) as Fevereiro,
+            (Select sum(valor) from despesa where idUsuario = {0}  and strftime('%m', data) like '03' and strftime('%Y', data) like {1}) as Março,
+            (Select sum(valor) from despesa where idUsuario = {0}  and strftime('%m', data) like '04' and strftime('%Y', data) like {1}) as Abril,
+            (Select sum(valor) from despesa where idUsuario = {0}  and strftime('%m', data) like '05' and strftime('%Y', data) like {1}) as Maio,
+            (Select sum(valor) from despesa where idUsuario = {0}  and strftime('%m', data) like '06' and strftime('%Y', data) like {1}) as Junho,
+            (Select sum(valor) from despesa where idUsuario = {0}  and strftime('%m', data) like '07' and strftime('%Y', data) like {1}) as Julho,
+            (Select sum(valor) from despesa where idUsuario = {0}  and strftime('%m', data) like '08' and strftime('%Y', data) like {1}) as Agosto,
+            (Select sum(valor) from despesa where idUsuario = {0}  and strftime('%m', data) like '09' and strftime('%Y', data) like {1}) as Setembro,
+            (Select sum(valor) from despesa where idUsuario = {0}  and strftime('%m', data) like '10' and strftime('%Y', data) like {1}) as Outubro,
+            (Select sum(valor) from despesa where idUsuario = {0}  and strftime('%m', data) like '11' and strftime('%Y', data) like {1}) as Novembro,
+            (Select sum(valor) from despesa where idUsuario = {0}  and strftime('%m', data) like '12' and strftime('%Y', data) like {1}) as Dezembro
+            ;""".format(idUsuario, Ano)
+       else:
+          sql = """Select 
+            (Select sum(valor) from receita where idUsuario = {0}  and strftime('%m', data) like '01' and strftime('%Y', data) like {1}) as Janeiro,
+            (Select sum(valor) from receita where idUsuario = {0}  and strftime('%m', data) like '02' and strftime('%Y', data) like {1}) as Fevereiro,
+            (Select sum(valor) from receita where idUsuario = {0}  and strftime('%m', data) like '03' and strftime('%Y', data) like {1}) as Março,
+            (Select sum(valor) from receita where idUsuario = {0}  and strftime('%m', data) like '04' and strftime('%Y', data) like {1}) as Abril,
+            (Select sum(valor) from receita where idUsuario = {0}  and strftime('%m', data) like '05' and strftime('%Y', data) like {1}) as Maio,
+            (Select sum(valor) from receita where idUsuario = {0}  and strftime('%m', data) like '06' and strftime('%Y', data) like {1}) as Junho,
+            (Select sum(valor) from receita where idUsuario = {0}  and strftime('%m', data) like '07' and strftime('%Y', data) like {1}) as Julho,
+            (Select sum(valor) from receita where idUsuario = {0}  and strftime('%m', data) like '08' and strftime('%Y', data) like {1}) as Agosto,
+            (Select sum(valor) from receita where idUsuario = {0}  and strftime('%m', data) like '09' and strftime('%Y', data) like {1}) as Setembro,
+            (Select sum(valor) from receita where idUsuario = {0}  and strftime('%m', data) like '10' and strftime('%Y', data) like {1}) as Outubro,
+            (Select sum(valor) from receita where idUsuario = {0}  and strftime('%m', data) like '11' and strftime('%Y', data) like {1}) as Novembro,
+            (Select sum(valor) from receita where idUsuario = {0}  and strftime('%m', data) like '12' and strftime('%Y', data) like {1}) as Dezembro
+            ;""".format(idUsuario, Ano)
+       dados = db.execute(sql)
+       print(dados)
+       return {'dados' :dados[0], 'status':'200'}
+    
     return render_template("dashboard.html", saldo=getSaldo(session["user_id"]))
 
 @app.route("/categorias", methods=["GET", "POST"])
