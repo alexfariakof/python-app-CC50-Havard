@@ -36,11 +36,12 @@ backgroundColor = [
 
 
 $(document).ready(function () {
-    printChart(yDespesas);
+    handleGerarGrafico();
 });
 
 
 var printChart = function (dados){
+    var _idTipoCategoria =  $('#idTipoCategoria').val();
     new Chart("myChart", {
         type: "bar",
         data: {
@@ -56,7 +57,7 @@ var printChart = function (dados){
             legend: { display: false },
             title: {
                 display: true,
-                text: "Lançamento de Despesas  por Ano"
+                text: _idTipoCategoria === '1' ? "Lançamento de Despesas  por Ano" : "Lançamento de Receitas por Ano"
             }
         }
     });
