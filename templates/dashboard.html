@@ -29,12 +29,13 @@
 
 {% block main %}
     <div class="mb-2">  
-        <label for="tipoCategoria" class="form-label">Tipo de Categoria  por ano</label>      
-        <select id="tipoCategoria" name="tipoCategoria" class="custom-select" style="width:6rem">
+        <label for="idTipoCategoria" class="form-label">Tipo de Categoria  por ano</label>      
+        <select id="idTipoCategoria" name="idTipoCategoria" class="custom-select" style="width:6rem">
             <option value="1" selected="selected">Despesas</option>
             <option value="2"  >Receitas</option>
         </select>
-        <input id="ddAno" name ="ddAno" type="number" autocomplete="off" autofocus placeholder="Ano" min="1900" max="2099" step="1" value="2023" style="width:3.6rem" />
+        <input id="Ano" name ="Ano" type="number" autocomplete="off" autofocus placeholder="Ano" min="1900" max="2099" step="1" value="2023" style="width:3.6rem" />
+        <button id="btnGerarGrafico" onclick="handleGerarGrafico();" class="btn btn-primary"><img class="iconImg" src="/static/img/lupa.png" style="margin_right:2rem" /></button>
     </div>
    <canvas id="myChart" class="h-75"></canvas>
 
