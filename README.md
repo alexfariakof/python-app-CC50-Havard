@@ -5,7 +5,7 @@
 # Acesso ao protótipo do projeto
  <a href="http://despesas-python.dmg4c8cnazhvhaep.eastus.azurecontainer.io:5000" target="_blank" >Despesas Pessoais</a>
 </h2>
-Obs.: Para testar a aplicação existe um o usuário já criado login:root senha toor ou tamboem pode criar um novo usuário.
+Obs.: Para testar a aplicação existe um o usuário já criado "login=root senha=toor" ou pode criar um novo usuário.
 
 # Descrição
 Para o desenvolvimento desse trabalho foi realizada uma pesquisa direcionada à implementação que propõe a construção uma aplicação responsiva e iterativa aperfeiçoada de sistemas.
