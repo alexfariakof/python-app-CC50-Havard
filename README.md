@@ -9,7 +9,8 @@ Obs.: Para testar a aplicação existe um o usuário já criado "login=root senh
 
 # Descrição
 Para o desenvolvimento desse trabalho foi realizada uma pesquisa direcionada à implementação que propõe a construção uma aplicação responsiva e iterativa aperfeiçoada de sistemas.
-Essa aplicação foi baseada nas tecnologias Pyhton, Flask, Jjinja, Javascript, Jquery, bootstrap5 e Sqlite3  como vabco de dados.
+Essa aplicação foi baseada nas tecnologias Pyhton, Flask, Jinja, Javascript, Jquery, bootstrap5 e Sqlite3 como banco de dados.
+A aplicação se encontra dockerizada e publicada no Azure.
 Para o desenvolvimento teórico desse trabalho foi realizada uma pesquisa direcionada à implementação que propõe a construção iterativa aperfeiçoada de sistemas.
 A aplicação proposta permitirá que o usuário crie uma conta e cadastre e controle  suas despesas de entrada e saída "Despesas e Receitas",
 
