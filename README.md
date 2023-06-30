@@ -2,8 +2,8 @@
 
 
 <h2 align="left"> 
-# Acesso ao protótipo do projeto
- <a href="http://despesas-python.dmg4c8cnazhvhaep.eastus.azurecontainer.io:5000" target="_blank" >Despesas Pessoais</a>
+# Acesso ao projeto em produção 
+ <a href="http://ec2-44-204-154-69.compute-1.amazonaws.com:4000" target="_blank" >Despesas Pessoais</a>
 </h2>
 Obs.: Para testar a aplicação existe um o usuário já criado "login=root senha=toor" ou pode criar um novo usuário.
 
