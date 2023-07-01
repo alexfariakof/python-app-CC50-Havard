@@ -6,16 +6,19 @@ Login
 
 {% block main %}
 <div class="mb3 py-5">|
-    <form action="/login" method="post">
-        <div class="mb-3" >
-            <input autocomplete=" off" autofocus class="form-control mx-auto w-auto" id="username" name="username"
-            placeholder="Username" type="text">
+    <div class="d-flex flex-column border border-4 border-dark rounded-4 align-items-center justify-content-center fs-6 fs-sm-5 fs-md-4 fs-lg-3">
+        <div class="bg-dark w-100 d-flex flex-column align-items-center justify-content-center">
+            <h2 class="text-light fw-bolder">Identifique-se</h2>
+             <form action="/login" method="post">
+                  <div class="mb-3" >
+                    <input autocomplete=" off" autofocus class="form-control mx-auto w-auto" id="username" name="username" placeholder="Username" type="text">
+                 </div>
+                 <div class="mb-3">
+                    <input class="form-control mx-auto w-auto" id="password" name="password" placeholder="Password" type="password">
+                </div>
+                <button class="btn btn-primary" type="submit">Entrar</button>
+            </form>
         </div>
-        <div class="mb-3">
-            <input class="form-control mx-auto w-auto" id="password" name="password" placeholder="Password"
-                type="password">
-        </div>
-        <button class="btn btn-primary" type="submit">Entrar</button>
-    </form>
+    </div>
 </div>
 {% endblock %}
