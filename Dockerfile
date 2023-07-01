@@ -1,9 +1,7 @@
 # For more information, please refer to https://aka.ms/vscode-docker-python
 FROM python:3.10-slim
 
-EXPOSE 80
-EXPOSE 5000
-EXPOSE 5002
+EXPOSE 4000
 
 #Install locales  pt-br
 RUN apt-get update
