@@ -1,5 +1,5 @@
 body{
-    font-family: 'Roboto';
+    font-family: 'Roboto', sans-serif;
     font-size: 1rem;
     margin: 0;
     height: 100%;
@@ -142,7 +142,7 @@ button, input[type="submit"] {
 .btn_buy{
     background-color: #7bde32;
     border: 1px solid transparent;
-    border-radius: 0.25rem;
+    border-radius: 2rem;
     font-size: 0.95rem;
     font-weight: 400;
     line-height: 1.5;
@@ -151,14 +151,12 @@ button, input[type="submit"] {
     transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
     vertical-align: middle;
     color:azure;
-    border-radius: 2rem;
 }
-
 
 .btn_sell{
     background-color: #ee3b3b;
     border: 1px solid transparent;
-    border-radius: 0.25rem;
+    border-radius: 2rem;
     font-size: 0.95rem;
     font-weight: 400;
     line-height: 1.5;
@@ -166,8 +164,7 @@ button, input[type="submit"] {
     text-align: center;
     transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
     vertical-align: middle;
-    color:azure;
-    border-radius: 2rem;
+    color:azure;    
 }
 
 .btnBarraFerramenta {
@@ -182,7 +179,6 @@ button, input[type="submit"] {
 }
 
 label{
-    text-align: left;
     align-items: flex-start;
     width:auto;
     padding:0px;
