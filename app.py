@@ -105,7 +105,7 @@ def register():
                 db.execute("INSERT INTO users (username, hash) VALUES(?, ?)",  request.form.get("username"), generate_password_hash(request.form.get("password")))
                 id_usuario = db.execute("select id From users where username = ?;", request.form.get("username"))
                 id_usuario = id_usuario[0]['id']
-                fillCategoriasPadrao(id_usuario)
+                fill_categorias_padrao(id_usuario)
                 db.execute("COMMIT;")
 
                 return redirect("/login")
@@ -167,7 +167,7 @@ def dashboard():
        print(dados)
        return {'dados' :dados[0], 'status':'200'}
     
-    return render_template("dashboard.html", saldo=getSaldo(session["user_id"]))
+    return render_template("dashboard.html", saldo=get_saldo(session["user_id"]))
 
 @app.route("/categorias", methods=["GET", "POST"])
 @login_required
@@ -179,7 +179,7 @@ def categorias():
             try:
                 sql = "Select c.id, tc.id as idTipoCategoria, tc.descricao as tipo, c.descricao From Categoria c Inner Join TipoCategoria tc on c.idTipoCategoria = tc.id where c.idUsuario = ? and c.id = ?;"
                 dados = db.execute(sql, session["user_id"], id_categoria)
-                return render_template("categorias.html", dados=dados, saldo=getSaldo(session["user_id"]))
+                return render_template("categorias.html", dados=dados, saldo=get_saldo(session["user_id"]))
             except Exception as inst:
                 print(type(inst))    # the exception type
                 print(inst.args)     # arguments stored in .args
@@ -187,8 +187,8 @@ def categorias():
                 return {'Error' :json.dumps(inst), 'status':'400'}
         else:
             print(dados)
-            return render_template("categorias.html", dados=dados, saldo=getSaldo(session["user_id"]))
-    return render_template("categorias.html", dados=dados, saldo=getSaldo(session["user_id"]))
+            return render_template("categorias.html", dados=dados, saldo=get_saldo(session["user_id"]))
+    return render_template("categorias.html", dados=dados, saldo=get_saldo(session["user_id"]))
 
 @app.route("/categoriaIncluir", methods=["GET", "POST"])
 @login_required
@@ -199,8 +199,8 @@ def categoriaIncluir():
     try:
         sql = "INSERT INTO Categoria (idUsuario, idTipoCategoria , descricao) VALUES  (?, ?, ? );"
         db.execute(sql,  session["user_id"], id_tipoCategoria, descricao);
-        jsonResponse = {"status":"200"}
-        return jsonResponse
+        json_response = {"status":"200"}
+        return json_response
 
     except Exception as e:
                 print(type(e))    # the exception type
@@ -220,9 +220,9 @@ def categoriaAlterar():
         sql = "UPDATE Categoria SET idTipoCategoria = ?,  descricao = ? Where idUsuario = ? and id = ?;"
         db.execute(sql, int(id_tipo_categoria), descricao, id_usuario , id_categoria );
 
-        jsonResponse = {"idCategoria": id_categoria, "idTipoCategoria": id_tipo_categoria, "descricao": descricao}
-        jsonResponse = {"data": jsonResponse, "status":"200"  }
-        return jsonResponse
+        json_response = {"idCategoria": id_categoria, "idTipoCategoria": id_tipo_categoria, "descricao": descricao}
+        json_response = {"data": json_response, "status":"200"  }
+        return json_response
     except Exception as inst:
                 print(type(inst))    # the exception type
                 print(inst.args)     # arguments stored in .args
@@ -239,8 +239,8 @@ def categoriaDelete():
         sql = "Delete from Categoria where idUsuario = ? and id = " + id_categoria +";"
         db.execute(sql, id_usuario)
 
-        jsonResponse = {"status":"200", "idCategoria": id_categoria}
-        return jsonResponse
+        json_response = {"status":"200", "idCategoria": id_categoria}
+        return json_response
     except Exception as inst:
                 print(type(inst))    # the exception type
                 print(inst.args)     # arguments stored in .args
@@ -252,7 +252,7 @@ def categoriaDelete():
 def categoriaList():
         sql = "Select c.id, tc.descricao as tipo, c.descricao From Categoria c Inner Join TipoCategoria tc on c.idTipoCategoria = tc.id where c.idUsuario = ?;"
         dados = db.execute(sql, session["user_id"])
-        return render_template("categoriaList.html", dados=dados, saldo=getSaldo(session["user_id"]))
+        return render_template("categoriaList.html", dados=dados, saldo=get_saldo(session["user_id"]))
 
 @app.route("/despesas", methods=["GET", "POST"])
 @login_required
@@ -270,9 +270,9 @@ def despesas():
                 dados = db.execute(sql, id_usuario , id)
 
                 for dado in dados:
-                    dado['valor'] =  usdToBrlWithSymbol(str(dado['valor']))
+                    dado['valor'] =  usd_to_brl_with_symbol(str(dado['valor']))
 
-                return render_template("despesas.html", dados=dados, categorias=categorias, saldo=getSaldo(session["user_id"]) )
+                return render_template("despesas.html", dados=dados, categorias=categorias, saldo=get_saldo(session["user_id"]) )
             except Exception as e:
                 print(type(e))    # the exception type
                 print(e.args)     # arguments stored in .args
@@ -280,8 +280,8 @@ def despesas():
                 return {'Error' :'Erro ao renderizar formulário de despesas!', 'status':'403'}
         else:
             print(dados)
-            return render_template("despesas.html", dados=dados,  categorias=categorias, saldo=getSaldo(session["user_id"]))
-    return render_template("despesas.html", dados=dados, categorias=categorias, slado=getSaldo(session["user_id"]))
+            return render_template("despesas.html", dados=dados,  categorias=categorias, saldo=get_saldo(session["user_id"]))
+    return render_template("despesas.html", dados=dados, categorias=categorias, slado=get_saldo(session["user_id"]))
 
 
 @app.route("/despesaIncluir", methods=["GET", "POST"])
@@ -300,8 +300,8 @@ def despesaIncluir():
     try:
         sql = "INSERT INTO Despesa(idUsuario,idCategoria,data, descricao, dataVencimento, valor) VALUES (?, " + id_categoria + " ,'" + data + "','" + descricao + "','" + data_vencimento + "', ?);"
         db.execute(sql, id_usuario, valor);
-        jsonResponse = {"status":"200"}
-        return jsonResponse
+        json_response = {"status":"200"}
+        return json_response
     except Exception as inst:
                 print(type(inst))    # the exception type
                 print(inst.args)     # arguments stored in .args
@@ -328,9 +328,9 @@ def despesaAlterar():
         sql = "UPDATE Despesa SET idCategoria =" + id_categoria +", data ='" +  data + "', descricao ='" + descricao +"', dataVencimento = '" + data_vencimento + "', valor = ? Where idUsuario = ? and id = ?;"
         db.execute(sql, valor, id_usuario, id_despesa );
 
-        jsonResponse = {"idDespesa":id_despesa,"idUsuario":id_usuario,"idCategoria":id_categoria,"data":data,"descricao":descricao, "dataVencimento":data_vencimento, "valor":valor }
-        jsonResponse = {"data": jsonResponse, "status":"200"  }
-        return jsonResponse
+        json_response = {"idDespesa":id_despesa,"idUsuario":id_usuario,"idCategoria":id_categoria,"data":data,"descricao":descricao, "dataVencimento":data_vencimento, "valor":valor }
+        json_response = {"data": json_response, "status":"200"  }
+        return json_response
     except Exception as e:
                 print(type(e))    # the exception type
                 print(e.args)     # arguments stored in .args
@@ -354,16 +354,16 @@ def despesaDelete():
             total = total + dado['valor']
 
         if total != 0:
-            total = usdToBrl(str(total))
+            total = usd_to_brl(str(total))
         else:
             total = 'R$ 0,00'
 
-        saldo = getSaldo(id_usuario)
+        saldo = get_saldo(id_usuario)
         if saldo != 0:
-            fsaldo = usdToBrl(str(saldo))
+            fsaldo = usd_to_brl(str(saldo))
 
-        jsonResponse = {"status":"200", "idDespesa": id_despesa, 'total':total, 'saldo':fsaldo, 'floatSsaldo': float(saldo)}
-        return jsonResponse
+        json_response = {"status":"200", "idDespesa": id_despesa, 'total':total, 'saldo':fsaldo, 'floatSsaldo': float(saldo)}
+        return json_response
 
     except Exception as inst:
                 print(type(inst))    # the exception type
@@ -383,15 +383,15 @@ def despesasList():
             total = total + dado['valor']
             
     if total != 0:
-        total = usdToBrl(str(total))
+        total = usd_to_brl(str(total))
     else:
         total = 'R$ 0,00'
 
     for dado in dados:
-        dado['valor'] =  usdToBrlWithSymbol(str(dado['valor']))
+        dado['valor'] =  usd_to_brl_with_symbol(str(dado['valor']))
 
 
-    return render_template("despesasList.html", dados=dados, saldo=getSaldo(session["user_id"]), total=total)
+    return render_template("despesasList.html", dados=dados, saldo=get_saldo(session["user_id"]), total=total)
 
 @app.route("/receitas", methods=["GET", "POST"])
 @login_required
@@ -410,9 +410,9 @@ def receitas():
                 dados = db.execute(sql, session["user_id"], id)
 
                 for dado in dados:
-                    dado['valor'] =  usdToBrlWithSymbol(str(dado['valor']))
+                    dado['valor'] =  usd_to_brl_with_symbol(str(dado['valor']))
 
-                return render_template("receitas.html", dados=dados, categorias=categorias, saldo=getSaldo(session["user_id"]) )
+                return render_template("receitas.html", dados=dados, categorias=categorias, saldo=get_saldo(session["user_id"]) )
             except Exception as e:
                 print(type(e))    # the exception type
                 print(e.args)     # arguments stored in .args
@@ -420,8 +420,8 @@ def receitas():
                 return {'Error' :'Erro ao mostrar  tela de receitas!', 'status':'403'}
         else:
             print(dados)
-            return render_template("receitas.html", dados=dados,  categorias=categorias, saldo=getSaldo(session["user_id"]))
-    return render_template("receitas.html", dados=dados, categorias=categorias, saldo=getSaldo(session["user_id"]))
+            return render_template("receitas.html", dados=dados,  categorias=categorias, saldo=get_saldo(session["user_id"]))
+    return render_template("receitas.html", dados=dados, categorias=categorias, saldo=get_saldo(session["user_id"]))
 
 
 @app.route("/receitaIncluir", methods=["GET", "POST"])
@@ -439,8 +439,8 @@ def receitaIncluir():
     try:
         sql = "INSERT INTO Receita(idUsuario,idCategoria,data, descricao,  valor) VALUES (?, " + id_categoria + " ,'" + data + "','" + descricao + "', ?);"
         db.execute(sql, id_usuario, valor);
-        jsonResponse = {"status":"200"}
-        return jsonResponse
+        json_response = {"status":"200"}
+        return json_response
     except Exception as inst:
                 print(type(inst))    # the exception type
                 print(inst.args)     # arguments stored in .args
@@ -468,9 +468,9 @@ def receitaAlterar():
 
         db.execute(sql, valor, id_usuario, id_receita );
 
-        jsonResponse = {"id":id_receita, "categoria":id_categoria, "data":data, "descricao":descricao, "valor":valor }
-        jsonResponse = {"data": jsonResponse, "status":"200"  }
-        return jsonResponse
+        json_response = {"id":id_receita, "categoria":id_categoria, "data":data, "descricao":descricao, "valor":valor }
+        json_response = {"data": json_response, "status":"200"  }
+        return json_response
     except Exception as inst:
                 print(type(inst))    # the exception type
                 print(inst.args)     # arguments stored in .args
@@ -498,16 +498,16 @@ def receitaDelete():
             total = total + dado['valor']
 
         if total != 0:
-            total = usdToBrl(str(total))
+            total = usd_to_brl(str(total))
         else:
             total = 'R$ 0,00'
 
-        saldo = getSaldo(id_usuario)
+        saldo = get_saldo(id_usuario)
         if saldo != 0:
-            fsaldo = usdToBrl(str(saldo))
+            fsaldo = usd_to_brl(str(saldo))
 
-        jsonResponse = {"status":"200", "idReceita": id_receita, 'total':total, 'saldo':fsaldo, 'floatSsaldo': float(saldo)}
-        return jsonResponse
+        json_response = {"status":"200", "idReceita": id_receita, 'total':total, 'saldo':fsaldo, 'floatSsaldo': float(saldo)}
+        return json_response
 
     except Exception as inst:
                 print(type(inst))    # the exception type
@@ -532,16 +532,16 @@ def receitasList():
             total = total + dado['valor']
 
     if total !=0:
-        total = usdToBrl(str(total))
+        total = usd_to_brl(str(total))
     else:
         total = 'R$ 0,00'
         
 
     for dado in dados:
-        dado['valor'] =  usdToBrlWithSymbol(str(dado['valor']))
+        dado['valor'] =  usd_to_brl_with_symbol(str(dado['valor']))
 
 
-    return render_template("receitasList.html", dados=dados, saldo=getSaldo(session["user_id"]), total=total)
+    return render_template("receitasList.html", dados=dados, saldo=get_saldo(session["user_id"]), total=total)
 
 
 
@@ -565,39 +565,39 @@ def lancamentos():
     dados = db.execute(sql, id_usuario, id_usuario)
 
     for dado in dados:
-        dado['valor'] =  usdToBrlWithSymbol(str(dado['valor']))
+        dado['valor'] =  usd_to_brl_with_symbol(str(dado['valor']))
 
 
-    return render_template('lancamentos.html', dados=dados, saldo=getSaldo(id_usuario))
+    return render_template('lancamentos.html', dados=dados, saldo=get_saldo(id_usuario))
 
 
-def getSaldo(id_usuario):
+def get_saldo(id_usuario):
 
-    sqlSaldoDespesa = "select (CASE (select count(1) from despesa where idUsuario = ?) WHEN 0 THEN 0 ELSE sum(valor) END) as saldo from despesa  where idUsuario = ?;"
-    sqlSaldoReceita = "select (CASE (select count(1) from Receita where idUsuario = ?) WHEN 0 THEN 0 ELSE sum(valor) END) as saldo from Receita  where idUsuario = ?;"
+    sql_saldo_despesa = "select (CASE (select count(1) from despesa where idUsuario = ?) WHEN 0 THEN 0 ELSE sum(valor) END) as saldo from despesa  where idUsuario = ?;"
+    sql_saldo_receita = "select (CASE (select count(1) from Receita where idUsuario = ?) WHEN 0 THEN 0 ELSE sum(valor) END) as saldo from Receita  where idUsuario = ?;"
 
 
-    saldoDespesa = db.execute(sqlSaldoDespesa, id_usuario, id_usuario)
-    saldoReceita = db.execute(sqlSaldoReceita, id_usuario, id_usuario)
-    saldoDespesa = saldoDespesa[0]['saldo']
-    saldoReceita = saldoReceita[0]['saldo']
-    saldo = saldoReceita - saldoDespesa
+    saldo_despesa = db.execute(sql_saldo_despesa, id_usuario, id_usuario)
+    saldo_receita = db.execute(sql_saldo_receita, id_usuario, id_usuario)
+    saldo_despesa = saldo_despesa[0]['saldo']
+    saldo_receita = saldo_receita[0]['saldo']
+    saldo = saldo_receita - saldo_despesa
     saldo = round(saldo, 2)
     return saldo
 
-def usdToBrl(valor):
+def usd_to_brl(valor):
     locale.setlocale(locale.LC_ALL, 'pt_BR.UTF-8') # Para sistemas windows
-    usdValor = float(valor.replace(',', ''))
-    brValorFormat =  locale.currency(usdValor, grouping=True)
-    return brValorFormat
+    usd_valor = float(valor.replace(',', ''))
+    br_valor_format =  locale.currency(usd_valor, grouping=True)
+    return br_valor_format
 
-def usdToBrlWithSymbol(valor):
+def usd_to_brl_with_symbol(valor):
     locale.setlocale(locale.LC_ALL, 'pt_BR.UTF-8') # Para sistemas windows
-    usdValor = float(valor.replace(',', ''))
-    brValorFormat = locale.currency(usdValor, grouping=True, symbol='R$')
-    return brValorFormat
+    usd_valor = float(valor.replace(',', ''))
+    br_valor_format = locale.currency(usd_valor, grouping=True, symbol='R$')
+    return br_valor_format
 
-def fillCategoriasPadrao(id_usuario):
+def fill_categorias_padrao(id_usuario):
     db.execute("INSERT INTO Categoria (idUsuario,idTipoCategoria ,descricao) VALUES  (?, 1, 'Alimentação' );", id_usuario);
     db.execute("INSERT INTO Categoria (idUsuario,idTipoCategoria ,descricao) VALUES  (?, 1, 'Casa' );", id_usuario);
     db.execute("INSERT INTO Categoria (idUsuario,idTipoCategoria ,descricao) VALUES  (?, 1, 'Serviços' );", id_usuario);
