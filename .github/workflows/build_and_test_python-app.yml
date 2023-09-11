@@ -1,12 +1,16 @@
 name: Build and Test Python application
 on:
+  push:
+      branches:
+        - feature/*  
+        - bug-fix/*  
   pull_request:
       types: [opened, synchronize, reopened]
       branches:
-      - pre-release
-      - dev
-      - feature/*  
-      - bug-fix/*
+        - pre-release
+        - dev
+        - feature/*  
+        - bug-fix/*
 permissions:
   contents: read
 jobs:
