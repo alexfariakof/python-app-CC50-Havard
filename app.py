@@ -103,9 +103,9 @@ def register():
 
                 db.execute("BEGIN TRANSACTION;")
                 db.execute("INSERT INTO users (username, hash) VALUES(?, ?)",  request.form.get("username"), generate_password_hash(request.form.get("password")))
-                idUsuario = db.execute("select id From users where username = ?;", request.form.get("username"))
-                idUsuario = idUsuario[0]['id']
-                fillCategoriasPadrao(idUsuario)
+                id_usuario = db.execute("select id From users where username = ?;", request.form.get("username"))
+                id_usuario = id_usuario[0]['id']
+                fillCategoriasPadrao(id_usuario)
                 db.execute("COMMIT;")
 
                 return redirect("/login")
@@ -129,11 +129,11 @@ def logout():
 @login_required
 def dashboard():
     if request.method == "POST":          
-       idUsuario = session["user_id"]
-       idTipoCategoria = request.form.get("idTipoCategoria")
-       Ano =  request.form.get("Ano")    
+       id_usuario = session["user_id"]
+       id_tipo_categoria = request.form.get("idTipoCategoria")
+       ano =  request.form.get("Ano")    
        sql = ''
-       if idTipoCategoria == '1':
+       if id_tipo_categoria == '1':
           sql = """Select 
             (Select sum(valor) from despesa where idUsuario = {0}  and strftime('%m', data) like '01' and strftime('%Y', data) like {1}) as Janeiro,
             (Select sum(valor) from despesa where idUsuario = {0}  and strftime('%m', data) like '02' and strftime('%Y', data) like {1}) as Fevereiro,
@@ -147,7 +147,7 @@ def dashboard():
             (Select sum(valor) from despesa where idUsuario = {0}  and strftime('%m', data) like '10' and strftime('%Y', data) like {1}) as Outubro,
             (Select sum(valor) from despesa where idUsuario = {0}  and strftime('%m', data) like '11' and strftime('%Y', data) like {1}) as Novembro,
             (Select sum(valor) from despesa where idUsuario = {0}  and strftime('%m', data) like '12' and strftime('%Y', data) like {1}) as Dezembro
-            ;""".format(idUsuario, Ano)
+            ;""".format(id_usuario, ano)
        else:
           sql = """Select 
             (Select sum(valor) from receita where idUsuario = {0}  and strftime('%m', data) like '01' and strftime('%Y', data) like {1}) as Janeiro,
@@ -162,7 +162,7 @@ def dashboard():
             (Select sum(valor) from receita where idUsuario = {0}  and strftime('%m', data) like '10' and strftime('%Y', data) like {1}) as Outubro,
             (Select sum(valor) from receita where idUsuario = {0}  and strftime('%m', data) like '11' and strftime('%Y', data) like {1}) as Novembro,
             (Select sum(valor) from receita where idUsuario = {0}  and strftime('%m', data) like '12' and strftime('%Y', data) like {1}) as Dezembro
-            ;""".format(idUsuario, Ano)
+            ;""".format(id_usuario, ano)
        dados = db.execute(sql)
        print(dados)
        return {'dados' :dados[0], 'status':'200'}
@@ -174,11 +174,11 @@ def dashboard():
 def categorias():
     dados = [{'id': '0', 'idTipoCategoria': 0, 'descricao': ''}]
     if request.method == "POST":
-        idCategoria =  request.form.get("idCategoria")
-        if idCategoria != '0':
+        id_categoria =  request.form.get("idCategoria")
+        if id_categoria != '0':
             try:
                 sql = "Select c.id, tc.id as idTipoCategoria, tc.descricao as tipo, c.descricao From Categoria c Inner Join TipoCategoria tc on c.idTipoCategoria = tc.id where c.idUsuario = ? and c.id = ?;"
-                dados = db.execute(sql, session["user_id"], idCategoria)
+                dados = db.execute(sql, session["user_id"], id_categoria)
                 return render_template("categorias.html", dados=dados, saldo=getSaldo(session["user_id"]))
             except Exception as inst:
                 print(type(inst))    # the exception type
@@ -193,12 +193,12 @@ def categorias():
 @app.route("/categoriaIncluir", methods=["GET", "POST"])
 @login_required
 def categoriaIncluir():
-    idTipoCategoria =  request.form.get("idTipoCategoria")
+    id_tipoCategoria =  request.form.get("idTipoCategoria")
     descricao = request.form.get("descricao")
 
     try:
         sql = "INSERT INTO Categoria (idUsuario, idTipoCategoria , descricao) VALUES  (?, ?, ? );"
-        db.execute(sql,  session["user_id"], idTipoCategoria, descricao);
+        db.execute(sql,  session["user_id"], id_tipoCategoria, descricao);
         jsonResponse = {"status":"200"}
         return jsonResponse
 
@@ -211,16 +211,16 @@ def categoriaIncluir():
 @app.route("/categoriaAlterar", methods=["GET", "POST"])
 @login_required
 def categoriaAlterar():
-    idUsuario = session["user_id"]
-    idCategoria =  request.form.get("idCategoria")
-    idTipoCategoria =  request.form.get("idTipoCategoria")
+    id_usuario = session["user_id"]
+    id_categoria =  request.form.get("idCategoria")
+    id_tipo_categoria =  request.form.get("idTipoCategoria")
     descricao = request.form.get("descricao")
 
     try:
         sql = "UPDATE Categoria SET idTipoCategoria = ?,  descricao = ? Where idUsuario = ? and id = ?;"
-        db.execute(sql, int(idTipoCategoria), descricao, idUsuario , idCategoria );
+        db.execute(sql, int(id_tipo_categoria), descricao, id_usuario , id_categoria );
 
-        jsonResponse = {"idCategoria": idCategoria, "idTipoCategoria": idTipoCategoria, "descricao": descricao}
+        jsonResponse = {"idCategoria": id_categoria, "idTipoCategoria": id_tipo_categoria, "descricao": descricao}
         jsonResponse = {"data": jsonResponse, "status":"200"  }
         return jsonResponse
     except Exception as inst:
@@ -232,14 +232,14 @@ def categoriaAlterar():
 @app.route("/categoriaDelete", methods=["GET", "POST"])
 @login_required
 def categoriaDelete():
-    idCategoria =  request.form.get("idCategoria")
-    idUsuario = session["user_id"]
+    id_categoria =  request.form.get("idCategoria")
+    id_usuario = session["user_id"]
     try:
-        print(idCategoria)
-        sql = "Delete from Categoria where idUsuario = ? and id = " + idCategoria +";"
-        db.execute(sql, idUsuario)
+        print(id_categoria)
+        sql = "Delete from Categoria where idUsuario = ? and id = " + id_categoria +";"
+        db.execute(sql, id_usuario)
 
-        jsonResponse = {"status":"200", "idCategoria": idCategoria}
+        jsonResponse = {"status":"200", "idCategoria": id_categoria}
         return jsonResponse
     except Exception as inst:
                 print(type(inst))    # the exception type
@@ -257,17 +257,17 @@ def categoriaList():
 @app.route("/despesas", methods=["GET", "POST"])
 @login_required
 def despesas():
-    idUsuario = session["user_id"]
+    id_usuario = session["user_id"]
     dados = [{'id': '0', 'idTipoCategoria': 0, 'data': '', 'descricao': '', 'dataVencimento':'','valor': 0, 'consolidado': 0 }]
-    sqlCategoria  = "Select id, descricao From Categoria where idUsuario = ? and idTipoCategoria = 1;"
-    categorias = db.execute(sqlCategoria, idUsuario)
+    sql_categoria  = "Select id, descricao From Categoria where idUsuario = ? and idTipoCategoria = 1;"
+    categorias = db.execute(sql_categoria, id_usuario)
     print(categorias)
     if request.method == "POST":
         id =  request.form.get("idDespesa")
         if id != '0':
             try:
                 sql = "Select d.*, l.consolidado From despesa d LEFT Join Lancamentos l on d.idUsuario = l.idUsuario  and d.id = l.idDespesa where d.idUsuario = ? and d.id = ?;"
-                dados = db.execute(sql, idUsuario , id)
+                dados = db.execute(sql, id_usuario , id)
 
                 for dado in dados:
                     dado['valor'] =  usdToBrlWithSymbol(str(dado['valor']))
@@ -287,19 +287,19 @@ def despesas():
 @app.route("/despesaIncluir", methods=["GET", "POST"])
 @login_required
 def despesaIncluir():
-    idUsuario = session["user_id"]
-    idCategoria = request.form.get("idCategoria")
+    id_usuario = session["user_id"]
+    id_categoria = request.form.get("idCategoria")
     data = request.form.get("data")
     descricao = request.form.get("descricao")
-    dataVencimento = request.form.get("dataVencimento")
+    data_vencimento = request.form.get("dataVencimento")
     valor = request.form.get("valor")
     valor = valor[3:16]
     valor = valor.replace('.', '')
     valor = float(valor.replace(',', '.'))
     print
     try:
-        sql = "INSERT INTO Despesa(idUsuario,idCategoria,data, descricao, dataVencimento, valor) VALUES (?, " + idCategoria + " ,'" + data + "','" + descricao + "','" + dataVencimento + "', ?);"
-        db.execute(sql, idUsuario, valor);
+        sql = "INSERT INTO Despesa(idUsuario,idCategoria,data, descricao, dataVencimento, valor) VALUES (?, " + id_categoria + " ,'" + data + "','" + descricao + "','" + data_vencimento + "', ?);"
+        db.execute(sql, id_usuario, valor);
         jsonResponse = {"status":"200"}
         return jsonResponse
     except Exception as inst:
@@ -313,22 +313,22 @@ def despesaIncluir():
 @app.route("/despesaAlterar", methods=["GET", "POST"])
 @login_required
 def despesaAlterar():
-    idDespesa = request.form.get("idDespesa")
-    idUsuario = session["user_id"]
-    idCategoria = request.form.get("id_Categoria")
+    id_despesa = request.form.get("idDespesa")
+    id_usuario = session["user_id"]
+    id_categoria = request.form.get("id_Categoria")
     data = request.form.get("data")
     descricao = request.form.get("descricao")
-    dataVencimento = request.form.get("dataVencimento")
+    data_vencimento = request.form.get("dataVencimento")
     valor = request.form.get("valor")
     valor = valor[3:16]
     valor = valor.replace('.', '')
     valor = float(valor.replace(',', '.'))
 
     try:
-        sql = "UPDATE Despesa SET idCategoria =" + idCategoria +", data ='" +  data + "', descricao ='" + descricao +"', dataVencimento = '" + dataVencimento + "', valor = ? Where idUsuario = ? and id = ?;"
-        db.execute(sql, valor, idUsuario, idDespesa );
+        sql = "UPDATE Despesa SET idCategoria =" + id_categoria +", data ='" +  data + "', descricao ='" + descricao +"', dataVencimento = '" + data_vencimento + "', valor = ? Where idUsuario = ? and id = ?;"
+        db.execute(sql, valor, id_usuario, id_despesa );
 
-        jsonResponse = {"idDespesa":idDespesa,"idUsuario":idUsuario,"idCategoria":idCategoria,"data":data,"descricao":descricao, "dataVencimento":dataVencimento, "valor":valor }
+        jsonResponse = {"idDespesa":id_despesa,"idUsuario":id_usuario,"idCategoria":id_categoria,"data":data,"descricao":descricao, "dataVencimento":data_vencimento, "valor":valor }
         jsonResponse = {"data": jsonResponse, "status":"200"  }
         return jsonResponse
     except Exception as e:
@@ -341,14 +341,14 @@ def despesaAlterar():
 @app.route("/despesaDelete", methods=["GET", "POST"])
 @login_required
 def despesaDelete():
-    idDespesa =  request.form.get("idDespesa")
-    idUsuario = session["user_id"]
+    id_despesa =  request.form.get("idDespesa")
+    id_usuario = session["user_id"]
     try:
 
         sql = "Delete  from Despesa where idUsuario = ? and id = ?;"
-        db.execute(sql, idUsuario, idDespesa)
+        db.execute(sql, id_usuario, id_despesa)
 
-        dados = db.execute("Select valor from Despesa where idUsuario = ?;", idUsuario)
+        dados = db.execute("Select valor from Despesa where idUsuario = ?;", id_usuario)
         total = 0
         for dado in dados:
             total = total + dado['valor']
@@ -358,11 +358,11 @@ def despesaDelete():
         else:
             total = 'R$ 0,00'
 
-        saldo = getSaldo(idUsuario)
+        saldo = getSaldo(id_usuario)
         if saldo != 0:
             fsaldo = usdToBrl(str(saldo))
 
-        jsonResponse = {"status":"200", "idDespesa": idDespesa, 'total':total, 'saldo':fsaldo, 'floatSsaldo': float(saldo)}
+        jsonResponse = {"status":"200", "idDespesa": id_despesa, 'total':total, 'saldo':fsaldo, 'floatSsaldo': float(saldo)}
         return jsonResponse
 
     except Exception as inst:
@@ -397,8 +397,8 @@ def despesasList():
 @login_required
 def receitas():
     dados = [{'id': '0', 'idTipoCategoria': 0, 'data': '', 'descricao': '', 'dataVencimento':'','valor': 0, 'consolidado': 0 }]
-    sqlCategoria  = "Select id, descricao From Categoria where idUsuario = ? and idTipoCategoria = 2;"
-    categorias = db.execute(sqlCategoria, session["user_id"])
+    sql_categoria  = "Select id, descricao From Categoria where idUsuario = ? and idTipoCategoria = 2;"
+    categorias = db.execute(sql_categoria, session["user_id"])
     if request.method == "POST":
 
         id =  request.form.get("idReceita")
@@ -427,8 +427,8 @@ def receitas():
 @app.route("/receitaIncluir", methods=["GET", "POST"])
 @login_required
 def receitaIncluir():
-    idUsuario = session["user_id"]
-    idCategoria = request.form.get("idCategoria")
+    id_usuario = session["user_id"]
+    id_categoria = request.form.get("idCategoria")
     data = request.form.get("data")
     descricao = request.form.get("descricao")
     valor = request.form.get("valor")
@@ -437,8 +437,8 @@ def receitaIncluir():
     valor = float(valor.replace(',', '.'))
     print
     try:
-        sql = "INSERT INTO Receita(idUsuario,idCategoria,data, descricao,  valor) VALUES (?, " + idCategoria + " ,'" + data + "','" + descricao + "', ?);"
-        db.execute(sql, idUsuario, valor);
+        sql = "INSERT INTO Receita(idUsuario,idCategoria,data, descricao,  valor) VALUES (?, " + id_categoria + " ,'" + data + "','" + descricao + "', ?);"
+        db.execute(sql, id_usuario, valor);
         jsonResponse = {"status":"200"}
         return jsonResponse
     except Exception as inst:
@@ -452,9 +452,9 @@ def receitaIncluir():
 @app.route("/receitaAlterar", methods=["GET", "POST"])
 @login_required
 def receitaAlterar():
-    idReceita = request.form.get("idReceita")
-    idCategoria = request.form.get("idCategoria")
-    idUsuario = session["user_id"]
+    id_receita = request.form.get("idReceita")
+    id_categoria = request.form.get("idCategoria")
+    id_usuario = session["user_id"]
     data = request.form.get("data")
     descricao = request.form.get("descricao")
     valor = request.form.get("valor")
@@ -464,11 +464,11 @@ def receitaAlterar():
 
 
     try:
-        sql = "UPDATE Receita SET idCategoria =" + idCategoria +", data = '" +  data + "', descricao = '" + descricao + "', valor = ? Where idUsuario = ? and id = ?;"
+        sql = "UPDATE Receita SET idCategoria =" + id_categoria +", data = '" +  data + "', descricao = '" + descricao + "', valor = ? Where idUsuario = ? and id = ?;"
 
-        db.execute(sql, valor, idUsuario, idReceita );
+        db.execute(sql, valor, id_usuario, id_receita );
 
-        jsonResponse = {"id":idReceita, "categoria":idCategoria, "data":data, "descricao":descricao, "valor":valor }
+        jsonResponse = {"id":id_receita, "categoria":id_categoria, "data":data, "descricao":descricao, "valor":valor }
         jsonResponse = {"data": jsonResponse, "status":"200"  }
         return jsonResponse
     except Exception as inst:
@@ -481,17 +481,17 @@ def receitaAlterar():
 @app.route("/receitaDelete", methods=["GET", "POST"])
 @login_required
 def receitaDelete():
-    idReceita = request.form.get("idReceita")
-    idUsuario = session["user_id"]
+    id_receita = request.form.get("idReceita")
+    id_usuario = session["user_id"]
 
     try:
-        idReceita =  request.form.get("idReceita")
-        print(idReceita)
+        id_receita =  request.form.get("idReceita")
+        print(id_receita)
 
         sql = "Delete  from Receita where idUsuario = ? and id = ?;"
-        db.execute(sql, idUsuario , idReceita)
+        db.execute(sql, id_usuario , id_receita)
 
-        dados = db.execute("Select valor from Receita where idUsuario = ?;", idUsuario)
+        dados = db.execute("Select valor from Receita where idUsuario = ?;", id_usuario)
 
         total = 0
         for dado in dados:
@@ -502,11 +502,11 @@ def receitaDelete():
         else:
             total = 'R$ 0,00'
 
-        saldo = getSaldo(idUsuario)
+        saldo = getSaldo(id_usuario)
         if saldo != 0:
             fsaldo = usdToBrl(str(saldo))
 
-        jsonResponse = {"status":"200", "idReceita": idReceita, 'total':total, 'saldo':fsaldo, 'floatSsaldo': float(saldo)}
+        jsonResponse = {"status":"200", "idReceita": id_receita, 'total':total, 'saldo':fsaldo, 'floatSsaldo': float(saldo)}
         return jsonResponse
 
     except Exception as inst:
@@ -549,7 +549,7 @@ def receitasList():
 @login_required
 def lancamentos():
 
-    idUsuario = session["user_id"]
+    id_usuario = session["user_id"]
 
     sql = """Select  lancamentos.*
             from (Select d.idUsuario, strftime('%d/%m/%Y', data) as fData,  idCategoria, valor, 'Despesas' as tipo, d.id as idDespesa, 0 as idReceita, d.descricao, c.descricao as categoria
@@ -562,23 +562,23 @@ def lancamentos():
                     Inner Join Categoria cr on r.idCategoria = cr.id
                     where r.idUsuario = ?
                     ) as lancamentos;"""
-    dados = db.execute(sql, idUsuario, idUsuario)
+    dados = db.execute(sql, id_usuario, id_usuario)
 
     for dado in dados:
         dado['valor'] =  usdToBrlWithSymbol(str(dado['valor']))
 
 
-    return render_template('lancamentos.html', dados=dados, saldo=getSaldo(idUsuario))
+    return render_template('lancamentos.html', dados=dados, saldo=getSaldo(id_usuario))
 
 
-def getSaldo(idUsuario):
+def getSaldo(id_usuario):
 
     sqlSaldoDespesa = "select (CASE (select count(1) from despesa where idUsuario = ?) WHEN 0 THEN 0 ELSE sum(valor) END) as saldo from despesa  where idUsuario = ?;"
     sqlSaldoReceita = "select (CASE (select count(1) from Receita where idUsuario = ?) WHEN 0 THEN 0 ELSE sum(valor) END) as saldo from Receita  where idUsuario = ?;"
 
 
-    saldoDespesa = db.execute(sqlSaldoDespesa, idUsuario, idUsuario)
-    saldoReceita = db.execute(sqlSaldoReceita, idUsuario, idUsuario)
+    saldoDespesa = db.execute(sqlSaldoDespesa, id_usuario, id_usuario)
+    saldoReceita = db.execute(sqlSaldoReceita, id_usuario, id_usuario)
     saldoDespesa = saldoDespesa[0]['saldo']
     saldoReceita = saldoReceita[0]['saldo']
     saldo = saldoReceita - saldoDespesa
@@ -597,18 +597,18 @@ def usdToBrlWithSymbol(valor):
     brValorFormat = locale.currency(usdValor, grouping=True, symbol='R$')
     return brValorFormat
 
-def fillCategoriasPadrao(idUsuario):
-    db.execute("INSERT INTO Categoria (idUsuario,idTipoCategoria ,descricao) VALUES  (?, 1, 'Alimentação' );", idUsuario);
-    db.execute("INSERT INTO Categoria (idUsuario,idTipoCategoria ,descricao) VALUES  (?, 1, 'Casa' );", idUsuario);
-    db.execute("INSERT INTO Categoria (idUsuario,idTipoCategoria ,descricao) VALUES  (?, 1, 'Serviços' );", idUsuario);
-    db.execute("INSERT INTO Categoria (idUsuario,idTipoCategoria ,descricao) VALUES  (?, 1, 'Saúde' );", idUsuario);
-    db.execute("INSERT INTO Categoria (idUsuario,idTipoCategoria ,descricao) VALUES  (?, 1, 'Imposto' );", idUsuario);
-    db.execute("INSERT INTO Categoria (idUsuario,idTipoCategoria ,descricao) VALUES  (?, 1, 'Transporte' );", idUsuario);
-    db.execute("INSERT INTO Categoria (idUsuario,idTipoCategoria ,descricao) VALUES  (?, 1, 'Lazer' );", idUsuario);
-    db.execute("INSERT INTO Categoria (idUsuario,idTipoCategoria ,descricao) VALUES  (?, 2, 'Salário' );", idUsuario);
-    db.execute("INSERT INTO Categoria (idUsuario,idTipoCategoria ,descricao) VALUES  (?, 2, 'Prêmio' );", idUsuario);
-    db.execute("INSERT INTO Categoria (idUsuario,idTipoCategoria ,descricao) VALUES  (?, 2, 'Investimento' );", idUsuario);
-    db.execute("INSERT INTO Categoria (idUsuario,idTipoCategoria ,descricao) VALUES  (?, 2, 'Benefício' );", idUsuario);
-    db.execute("INSERT INTO Categoria (idUsuario,idTipoCategoria ,descricao) VALUES  (?, 2, 'Outro' );", idUsuario);
+def fillCategoriasPadrao(id_usuario):
+    db.execute("INSERT INTO Categoria (idUsuario,idTipoCategoria ,descricao) VALUES  (?, 1, 'Alimentação' );", id_usuario);
+    db.execute("INSERT INTO Categoria (idUsuario,idTipoCategoria ,descricao) VALUES  (?, 1, 'Casa' );", id_usuario);
+    db.execute("INSERT INTO Categoria (idUsuario,idTipoCategoria ,descricao) VALUES  (?, 1, 'Serviços' );", id_usuario);
+    db.execute("INSERT INTO Categoria (idUsuario,idTipoCategoria ,descricao) VALUES  (?, 1, 'Saúde' );", id_usuario);
+    db.execute("INSERT INTO Categoria (idUsuario,idTipoCategoria ,descricao) VALUES  (?, 1, 'Imposto' );", id_usuario);
+    db.execute("INSERT INTO Categoria (idUsuario,idTipoCategoria ,descricao) VALUES  (?, 1, 'Transporte' );", id_usuario);
+    db.execute("INSERT INTO Categoria (idUsuario,idTipoCategoria ,descricao) VALUES  (?, 1, 'Lazer' );", id_usuario);
+    db.execute("INSERT INTO Categoria (idUsuario,idTipoCategoria ,descricao) VALUES  (?, 2, 'Salário' );", id_usuario);
+    db.execute("INSERT INTO Categoria (idUsuario,idTipoCategoria ,descricao) VALUES  (?, 2, 'Prêmio' );", id_usuario);
+    db.execute("INSERT INTO Categoria (idUsuario,idTipoCategoria ,descricao) VALUES  (?, 2, 'Investimento' );", id_usuario);
+    db.execute("INSERT INTO Categoria (idUsuario,idTipoCategoria ,descricao) VALUES  (?, 2, 'Benefício' );", id_usuario);
+    db.execute("INSERT INTO Categoria (idUsuario,idTipoCategoria ,descricao) VALUES  (?, 2, 'Outro' );", id_usuario);
 
 app.run(host="0.0.0.0")
