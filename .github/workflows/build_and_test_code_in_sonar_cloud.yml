@@ -5,12 +5,14 @@ on:
       - dev
       - feature/*
       - pre-release      
+      - bug-fix/*
   pull_request:
     types: [opened, synchronize, reopened]
     branches:
       - pre-release
       - dev
       - feature/*    
+      - bug-fix/*
 jobs:
   sonarcloud:
     name: SonarCloud
