@@ -7,6 +7,10 @@ on:
       - pre-release      
   pull_request:
     types: [opened, synchronize, reopened]
+    branches:
+      - pre-release
+      - dev
+      - feature/*    
 jobs:
   sonarcloud:
     name: SonarCloud
