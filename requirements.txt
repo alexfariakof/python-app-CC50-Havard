@@ -4,3 +4,5 @@ cs50
 flask_session
 requests
 werkzeug
+flake8 
+pytest
