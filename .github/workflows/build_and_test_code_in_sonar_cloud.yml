@@ -1,8 +1,10 @@
-name: Build
+name: Build and Test Code In SONAR Cloud
 on:
   push:
     branches:
-      - main
+      - dev
+      - feature/*
+      - pre-release      
   pull_request:
     types: [opened, synchronize, reopened]
 jobs:
