@@ -11,10 +11,8 @@ from helpers import apology, login_required, lookup, usd
  # Configure CS50 Library to use SQLite database
 db = SQL("sqlite:///DespesasPessoaisDB.db")
 
-
 # Configure application
 app = Flask(__name__)
-
 # Ensure templates are auto-reloaded
 app.config["TEMPLATES_AUTO_RELOAD"] = True
 
@@ -26,7 +24,6 @@ app.config["SESSION_PERMANENT"] = False
 app.config["SESSION_TYPE"] = "filesystem"
 
 Session(app)
-
 
 @app.after_request
 def after_request(response):
