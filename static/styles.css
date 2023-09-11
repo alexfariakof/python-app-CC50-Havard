@@ -188,7 +188,6 @@ label{
     text-justify: inter-word;
 }
 
-
 input[type="text"], input[type="number"], input[type="date"], .custom-select, Select {
     line-height: 1.8;
     width: 100%;
@@ -217,15 +216,9 @@ Select {
     border-radius: 0.25rem;
     border: 2px solid;
     font-size: medium;
-}
-
-
-.textValorDecimal:hover
-{
     background-color: #f5f5f5;
     transition: color 2s ease-in-out, background-color 0.15s ease-in-out;
 }
-
 
 .loading {
     background-color:#0d6efd;
