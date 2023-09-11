@@ -1,8 +1,10 @@
-name: Build
+name: Build and Test Code In SONAR Cloud
 on:
   push:
     branches:
-      - main
+      - dev
+      - feature/*
+      - pre-release      
   pull_request:
     types: [opened, synchronize, reopened]
 jobs:
@@ -16,4 +18,5 @@ jobs:
       - name: SonarCloud Scan
         uses: SonarSource/sonarcloud-github-action@master
         env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
