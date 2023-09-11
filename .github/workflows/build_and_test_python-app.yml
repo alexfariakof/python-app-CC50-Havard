@@ -5,7 +5,8 @@ on:
       branches:
       - pre-release
       - dev
-      - feature/*    
+      - feature/*  
+      - bug-fix/*
 permissions:
   contents: read
 jobs:
