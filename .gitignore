@@ -47,6 +47,7 @@ coverage.xml
 .pytest_cache/
 cover/
 __pycache__/
+flask_session/
 # Translations
 *.mo
 *.pot
