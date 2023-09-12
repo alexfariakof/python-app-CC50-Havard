@@ -93,3 +93,15 @@ jobs:
             docker rmi --force $image_id
             docker pull $IMAGEM            
             docker run -d -p 4000:4000 $IMAGEM     
+            
+    update_dev_branch:
+      needs: deploy
+      runs-on: ubuntu-latest
+      if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/dev' && github.event.pull_request == null && success() }}
+      steps:
+      - name: Update dev branch
+        run: |
+          git checkout dev
+          git pull origin dev
+          git merge --no-ff ${{ github.sha }}
+          git push origin dev
