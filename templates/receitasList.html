@@ -31,12 +31,12 @@
 <div class="d-flex" style="width:100%">
     <div class="titulo p-2 text-start flex-grow-1 ">
         <button id="btnNewReceita" onclick="handleNewReceita()" class="btn btn-primary btnBarraFerramenta" data-bs-toggle="tooltip" data-bs-placement="top" title="Crirar uma nova Receita">
-            <img class="iconImg" src="/static/img/plus.png" /> Nova Receita
+            <img alt="" class="iconImg" src="/static/img/plus.png" /> Nova Receita
         </button>
     </div>
     <div class="p-2 align-align-items-end ">
         <button id="btnVoltar" onclick="location.href = document.referrer;" class="btn btn-primary">
-            <img class="iconImg" src="/static/img/voltar.png" /> Voltar
+            <img alt="" class="iconImg" src="/static/img/voltar.png" /> Voltar
          </button>
     </div>
 </div>
@@ -60,9 +60,9 @@
                 {% for receita in dados %}
                 <tr>
                     <td style="width:6px;padding:0px;vertical-align: middle;"><button type="button" data-bs-toggle="tooltip" data-bs-placement="top" title="Deletar Receita"
-                        onclick="handleDelete(this, {{ receita.id }})"><img class="iconImg" src="/static/img/delete.png" /> </button></td>
+                        onclick="handleDelete(this, {{ receita.id }})"><img alt="" class="iconImg" src="/static/img/delete.png" /> </button></td>
                     <td style="width:6px;padding:0px;vertical-align: middle;"><button type="button" data-bs-placement="top" title="Editar Receita"
-                        onclick="handleEdit({{ receita.id }})"><img class="iconImg" src="/static/img/edit.png" /> </button></td>
+                        onclick="handleEdit({{ receita.id }})"><img alt="" class="iconImg" src="/static/img/edit.png" /> </button></td>
                     <td>{{ receita.data }}</td>
                     <td>{{ receita.tipo }}</td>
                     <td> {{ receita.descricao }}</td>
