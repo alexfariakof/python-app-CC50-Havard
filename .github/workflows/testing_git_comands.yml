@@ -24,8 +24,8 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          git checkout origin/dev
-          git pull origin dev
+          git checkout remotes/dev
+          git pull remotes/origin remotes/dev
           git merge --no-ff ${{ github.sha }}
-          git push origin dev
+          git push remotes/origin remotes/dev
   
