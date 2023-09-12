@@ -113,10 +113,3 @@ jobs:
           git pull origin dev
           git merge --no-ff ${{ github.sha }}
           git push origin dev
-      steps:
-      - name: Update dev branch
-        run: |
-          git checkout dev
-          git pull origin dev
-          git merge --no-ff ${{ github.sha }}
-          git push origin dev
