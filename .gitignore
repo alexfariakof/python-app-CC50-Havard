@@ -46,8 +46,8 @@ coverage.xml
 .hypothesis/
 .pytest_cache/
 cover/
-__pycache__
-*.__pycache__\*
+__pycache__/
+flask_session/
 # Translations
 *.mo
 *.pot
