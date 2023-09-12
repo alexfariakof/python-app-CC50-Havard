@@ -1,0 +1,26 @@
+name: Build, Test and Publish Project Production In AWS
+on:
+  push:
+    branches: [ "main" ]
+jobs:
+    update_dev_branch:
+      runs-on: ubuntu-latest
+      if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' && github.event.pull_request == null && success() }}
+      steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+  
+      - name: Set up Git
+        run: |
+          git config user.email "${{ secrets.USER_EMAIL }}"
+          git config user.name "${{ secrets.USER_NAME }}"
+        
+      - name: Checkout dev branch
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          git checkout origin/dev
+          git pull origin dev
+          git merge --no-ff ${{ github.sha }}
+          git push origin dev
+  
