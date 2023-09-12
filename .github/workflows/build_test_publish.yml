@@ -97,7 +97,7 @@ jobs:
     update_dev_branch:
       needs: deploy
       runs-on: ubuntu-latest
-      if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/dev' && github.event.pull_request == null && success() }}
+      if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' && github.event.pull_request == null && success() }}
       steps:
       - name: Update dev branch
         run: |
