@@ -18,13 +18,14 @@ jobs:
       - name: Debug Repository
         run: |
           git branch -a
+          git status
         continue-on-error: false
         
       - name: Checkout dev branch
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          git checkout remotes/origin/dev
+          git checkout remotes/dev
           git pull remotes/origin remotes/origin/dev
           git merge --no-ff ${{ github.sha }}
           git push remotes/origin remotes/origin/dev
