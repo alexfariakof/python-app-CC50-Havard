@@ -102,6 +102,6 @@ jobs:
       - name: Update dev branch
         run: |
           git checkout dev
-          git pull origin dev
+          git pull main dev
           git merge --no-ff ${{ github.sha }}
-          git push origin dev
+          git push dev
