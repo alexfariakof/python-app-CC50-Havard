@@ -1,4 +1,4 @@
-name: Build, Test and Publish Project Production In AWS
+name: Excute Git Comands
 on:
   push:
     branches: [ "main" ]
