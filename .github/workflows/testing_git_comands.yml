@@ -27,4 +27,5 @@ jobs:
         run: |
           git config pull.ff no 
           git pull origin dev
+          git merge "${{ github.sha }}" --no-ff
           git push -f origin dev
