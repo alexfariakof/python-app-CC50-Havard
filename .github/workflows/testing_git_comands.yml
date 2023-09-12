@@ -25,8 +25,8 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          git config pull.rebase false
+          git config pull.ff only
           git pull origin dev
           git checkout dev             
-          git merge --no-ff ${{ github.sha }}
-          git push -f origin dev  # U
+          git merge --no-ff "${{ github.sha }}"
+          git push -f origin dev
