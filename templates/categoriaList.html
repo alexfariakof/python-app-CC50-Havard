@@ -31,12 +31,12 @@
 <div class="d-flex" style="width:100%">
     <div class="titulo p-2 text-start flex-grow-1 ">
         <button id="btnNewCategoria" onclick="handleNewCategoria()" data-bs-toggle="tooltip" data-bs-placement="top"  title="Criar uma nova categoria"  class="btn btn-primary btnBarraFerramenta">
-            <img class="iconImg" src="/static/img/plus.png" /> Nova Categoria
+            <img alt="" class="iconImg" src="/static/img/plus.png" /> Nova Categoria
         </button>
         </div>
     <div class="p-2 align-items-end ">
         <button id="btnVoltar" onclick="location.href = document.referrer;" class="btn btn-primary">
-            <img class="iconImg" src="/static/img/voltar.png" /> Voltar
+            <img alt="" class="iconImg" src="/static/img/voltar.png" /> Voltar
          </button>
     </div>
 </div>
@@ -63,9 +63,9 @@
                             data-bs-placement="top" title="Deletar Categoria" onclick="handleDelete(this, {{ categoria.id }})">
 
 
-                            <img class="iconImg" src="/static/img/delete.png" /> </button></td>
+                            <img alt="" class="iconImg" src="/static/img/delete.png" /> </button></td>
                     <td style="width:6px;padding:0px;vertical-align: middle;"><button type="button" data-bs-toggle="tooltip"
-                            data-bs-placement="top" title="Editar Categoria" onclick="handleEdit({{ categoria.id }})"><img
+                            data-bs-placement="top" title="Editar Categoria" onclick="handleEdit({{ categoria.id }})"><img alt=""
                                 class="iconImg" src="/static/img/edit.png" />
                         </button></td>
                     </td>

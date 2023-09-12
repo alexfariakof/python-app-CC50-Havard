@@ -32,7 +32,7 @@
     <div class="titulo p-2 text-start flex-grow-1 ">
     </div>
     <div class="p-2 align-align-items-end ">
-        <button id="btnVoltar" onclick="location.href = document.referrer;" class="btn btn-primary"><img class="iconImg" src="/static/img/voltar.png" style="margin_right:2rem" /> Voltar </button>
+        <button id="btnVoltar" onclick="location.href = document.referrer;" class="btn btn-primary"><img alt="" class="iconImg" src="/static/img/voltar.png" style="margin_right:2rem" /> Voltar </button>
     </div>
 </div>
 {% endblock %}
@@ -59,9 +59,9 @@
                 {%  for lancamento in dados  %}
                 <tr>
                     <td style="width:6px;padding:0px;vertical-align: middle;"><button type="button" data-bs-toggle="tooltip" data-bs-placement="top" title="Deletar {{ lancamento.tipo }}"
-                            onclick="handleDelete(this, {{ lancamento.idDespesa }},  {{ lancamento.idReceita }})"><img class="iconImg" src="/static/img/delete.png" /> </button></td>
+                            onclick="handleDelete(this, {{ lancamento.idDespesa }},  {{ lancamento.idReceita }})"><img alt="" class="iconImg" src="/static/img/delete.png" /> </button></td>
                     <td style="width:6px;padding:0px;vertical-align: middle;"><button type="button" data-bs-toggle="tooltip" data-bs-placement="top" title="Editar {{ lancamento.tipo }}"
-                            onclick="handleEdit({{ lancamento.idDespesa }}, {{ lancamento.idReceita }})"><img class="iconImg" src="/static/img/edit.png" /> </button></td>
+                            onclick="handleEdit({{ lancamento.idDespesa }}, {{ lancamento.idReceita }})"><img alt="" class="iconImg" src="/static/img/edit.png" /> </button></td>
                     <td>{{ lancamento.fData }}</td>
                     <td>{{ lancamento.tipo }}</td>
                     <td> {{ lancamento.descricao }}</td>
